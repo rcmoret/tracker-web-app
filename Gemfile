@@ -5,4 +5,5 @@ group :development do
 
   gem 'activerecord'
   gem 'sqlite3'
+  gem 'standalone_migrations'
 end

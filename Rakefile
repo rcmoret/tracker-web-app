@@ -1,4 +1,7 @@
 require 'rake'
+require 'standalone_migrations'
+
+StandaloneMigrations::Tasks.load_tasks
 
 task default: 'app:start'
 
