@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import CalculateStreak from "../functions/CalculateStreak"
+
 const Info = (props) => {
   const {
     correctStreak,
@@ -35,7 +37,7 @@ const mapStateToProps = (state) => {
   const { history } = state.problems
   const totalAttempts = history.length
   const totalCorrect = history.filter(attempt => attempt === "success").length
-  const correctStreak = history.indexOf('failure') === -1 ? history.length : history.indexOf('failure')
+  const correctStreak = CalculateStreak(history)
 
   return {
     totalAttempts: totalAttempts,
