@@ -5,7 +5,14 @@ import ApiUrlBuilder from "../functions/ApiUrlBuilder"
 import { logCorrectAnswer, logIncorrectAnswer, updateInputAnswer } from "../actions/problems"
 
 const Problem = (props) => {
-  const { answerValue, dispatch, id, symbol, x_value, y_value } = props
+  const {
+    answerValue,
+    dispatch,
+    id,
+    symbol,
+    x_value,
+    y_value,
+  } = props
 
   const correctAnswer = () => {
     const value = parseInt(answerValue)
@@ -23,16 +30,17 @@ const Problem = (props) => {
     }
   }
 
-  const url = ApiUrlBuilder(["problem", id, "attempt"])
-  const postOptions = {
-    method: "POST",
-    headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  }
 
   const onSubmit = (e) => {
+    const url = ApiUrlBuilder(["problem", id, "attempt"])
+    const postOptions = {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    }
+
     if (correctAnswer()) {
       fetch(url, {
         ...postOptions,
@@ -45,6 +53,12 @@ const Problem = (props) => {
         body: JSON.stringify({ success: "false" })
       })
         .then(() => dispatch(logIncorrectAnswer({ id: id })))
+    }
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.which === 13 && answerValue.match(/^\d+/)) {
+      onSubmit()
     }
   }
 
@@ -70,6 +84,7 @@ const Problem = (props) => {
       <div className="answer">
         <input
           onChange={updateAnswer}
+          onKeyDown={handleKeyDown}
           value={answerValue}
         />
       </div>
