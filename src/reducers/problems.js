@@ -10,6 +10,7 @@ const initialState = {
   fetched: false,
   index: 0,
   lastAnswer: "",
+  history: [],
 }
 
 const addSuccessfulAttempt = (problem) => {
@@ -37,7 +38,8 @@ export default (state = initialState, action) => {
       ),
       answer: "",
       lastAnswer: "correct",
-      index: (state.index + 1)
+      index: (state.index + 1),
+      history: ["success", ...state.history],
     }
   case "LOG_INCORRECT_ANSWER":
     return {
@@ -47,7 +49,8 @@ export default (state = initialState, action) => {
       ),
       answer: "",
       lastAnswer: "incorrect",
-      index: (state.index + 1)
+      index: (state.index + 1),
+      history: ["failure", ...state.history],
     }
   case "PROBLEMS_COLLECTION_FETCHED":
     return {

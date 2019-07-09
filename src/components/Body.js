@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { problemsCollectionFetched } from "../actions/problems"
+import Info from "./Info"
 import Problem from "./Problem"
 import Message from "./Message"
 
@@ -18,6 +19,7 @@ const Body = (props) => {
     <div>
       <Message />
       <Problem />
+      <Info />
     </div>
   )
 }
