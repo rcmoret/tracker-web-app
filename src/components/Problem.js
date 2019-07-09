@@ -23,26 +23,26 @@ const Problem = (props) => {
     }
   }
 
-  const successUrl = ApiUrlBuilder(["problem", id, "log_success"])
-  const failureUrl = ApiUrlBuilder(["problem", id, "log_failure"])
+  const url = ApiUrlBuilder(["problem", id, "attempt"])
+  const postOptions = {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+  }
 
   const onSubmit = (e) => {
     if (correctAnswer()) {
-      fetch(successUrl, {
-        method: "PUT",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
+      fetch(url, {
+        ...postOptions,
+        body: JSON.stringify({ success: "true" })
       })
         .then(() => dispatch(logCorrectAnswer({ id: id })))
     } else {
-      fetch(failureUrl, {
-        method: "PUT",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
+      fetch(url, {
+        ...postOptions,
+        body: JSON.stringify({ success: "false" })
       })
         .then(() => dispatch(logIncorrectAnswer({ id: id })))
     }
