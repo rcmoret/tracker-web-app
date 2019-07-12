@@ -7,10 +7,22 @@ h1 {
   color: #3B71B2;
 }
 
+.left {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.right {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .problem {
   background: #FFF9D2;
-  width: 20%;
-  padding: 2%;
+  width: 100%;
+  padding: 5% 2%;
   border-radius: 15px;
 }
 
@@ -22,7 +34,7 @@ h1 {
 .message {
   background: #FF6F61;
   color: #3B71B2;
-  width: 20%;
+  width: 100%;
   padding: 0.4% 2%;
   border-radius: 15px;
   margin-bottom: 10px;
@@ -31,8 +43,15 @@ h1 {
 .info {
   color: #FFF9D2;
   background: #3B71B2;
-  width: 20%;
-  padding: 0.4% 2%;
+  width: 100%;
+  padding: 4% 2%;
   border-radius: 15px;
   margin-top: 10px;
+}
+
+.meme {
+  margin-left: 5%;
+  padding: 10px;
+  background: #FFF9D2;
+  border-radius: 25px;
 }

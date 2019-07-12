@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 
 import { problemsCollectionFetched } from "../actions/problems"
 import Info from "./Info"
-import Problem from "./Problem"
+import Meme from "./Meme"
 import Message from "./Message"
+import Problem from "./Problem"
 
 import ApiUrlBuilder from "../functions/ApiUrlBuilder"
 
@@ -17,9 +18,14 @@ const Body = (props) => {
   }
   return (
     <div>
-      <Message />
-      <Problem />
-      <Info />
+      <div className="left">
+        <Message />
+        <Problem />
+        <Info />
+      </div>
+      <div className="right">
+        <Meme />
+      </div>
     </div>
   )
 }

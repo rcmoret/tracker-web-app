@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import Body from "./components/Body"
 
 import problemsReducer from "./reducers/problems"
+import memesReducer from "./reducers/memes"
 
 import logo from './logo.svg';
 import './App.css';
@@ -12,6 +13,7 @@ import './App.css';
 const store = createStore(
   combineReducers({
     problems: problemsReducer,
+    memes: memesReducer,
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 )
