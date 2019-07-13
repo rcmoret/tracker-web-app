@@ -55,3 +55,39 @@ h1 {
   background: #FFF9D2;
   border-radius: 25px;
 }
+
+.admin-form input.url {
+  width: 100%;
+}
+
+.dimensions {
+  display: flex;
+}
+
+.dimensions .label, .dimensions .input {
+}
+
+.dimensions .label {
+  width: 20%;
+}
+
+.dimensions .input {
+  width: 20%;
+  margin-left: 2%;
+}
+
+.dimensions .input input {
+  width: 80%;
+}
+
+.success-radio {
+  display: flex;
+}
+
+.success-radio .label {
+  width: 30%;
+}
+
+.success-radio .input {
+  width: 20%;
+}
