@@ -1,10 +1,19 @@
+/* dark blue #3B71B2 */
+/* green #588751 */
+/* red #FF6F61 */
+/* light blue #D4E1E8 */
+/* orange #FF6F25 */
+/* tan #FFE9AC */
+/* yellow #FFF9D2 */
+
+
 html {
   padding: 1%;
   background: #D4E1E8;
 }
 
 h1 {
-  color: #3B71B2;
+  color: #3B71B2; /* dark blue */
 }
 
 .left {
@@ -20,7 +29,7 @@ h1 {
 }
 
 .problem {
-  background: #FFF9D2;
+  background: #FFF9D2; /* yellow */
   width: 100%;
   padding: 5% 2%;
   border-radius: 15px;
@@ -31,9 +40,17 @@ h1 {
   margin-right: 1%;
 }
 
+.message.failure {
+  background: #FF6F61; /* red */
+  color: #3B71B2; /* dark blue */
+}
+
+.message.success {
+  background: #588751; /* green */
+  color: #FFF9D2; /* yellow */
+}
+
 .message {
-  background: #FF6F61;
-  color: #3B71B2;
   width: 100%;
   padding: 0.4% 2%;
   border-radius: 15px;

@@ -16,6 +16,7 @@ const Body = (props) => {
       .then(response => response.json())
       .then(data => props.dispatch(problemsCollectionFetched(data)))
   }
+
   return (
     <div>
       <div className="left">
