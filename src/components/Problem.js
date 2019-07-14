@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import ApiUrlBuilder from "../functions/ApiUrlBuilder"
 import { logCorrectAnswer, logIncorrectAnswer, updateInputAnswer } from "../actions/problems"
 
+import { problem } from "../locales/copy"
+
 const Problem = (props) => {
   const {
     answerValue,
@@ -79,7 +81,7 @@ const Problem = (props) => {
         {y_value}
       </div>
       <div className="equal-sign">
-        =
+        {problem.equalSign}
       </div>
       <div className="answer">
         <input
@@ -93,7 +95,7 @@ const Problem = (props) => {
           type="submit"
           onClick={onSubmit}
         >
-          ANSWER
+          {problem.answerButtonText}
         </button>
       </div>
     </div>

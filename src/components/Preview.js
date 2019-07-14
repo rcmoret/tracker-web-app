@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import { admin } from "../locales/copy"
+
 const Preview = (props) => {
   const {
     height,
@@ -24,7 +26,7 @@ const Preview = (props) => {
 
   return (
     <div>
-      <h3>Preview</h3>
+      <h3>{admin.preview}</h3>
       <div className="meme" style={divstyle}>
         <img src={url} style={imgstyle} alt={name} />
       </div>

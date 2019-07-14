@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import CalculateStreak from "../functions/CalculateStreak"
+import { problem } from "../locales/copy"
 
 const Info = (props) => {
   const {
@@ -10,9 +11,13 @@ const Info = (props) => {
     totalCorrect,
   } = props
 
+  const {
+    correct,
+  } = problem
+
   return (
     <div className="info">
-      {totalCorrect} correct out of {totalAttempts} questions
+      {correct(totalCorrect, totalAttempts)}
       <br />
       <Streak
         number={correctStreak}
@@ -22,10 +27,14 @@ const Info = (props) => {
 }
 
 const Streak = ({ number }) => {
+  const {
+    inARow,
+  } = problem
+
   if (number > 1) {
     return (
       <div className="streak">
-        {number} in a row!
+        {inARow(number)}
       </div>
     )
   } else {

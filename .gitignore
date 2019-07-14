@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/locales/overrides/copy.js
+/src/locales/overrides/terms.js

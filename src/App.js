@@ -9,7 +9,7 @@ import Body from "./components/Body"
 import problemsReducer from "./reducers/problems"
 import memesReducer from "./reducers/memes"
 
-import logo from './logo.svg';
+import { terms, title } from "./locales/copy"
 import './App.css';
 
 const store = createStore(
@@ -26,7 +26,7 @@ export default () => {
       <Provider store={store}>
         <Router>
           <header className="App-header">
-            <h1>Scarlett's Math Quiz</h1>
+            <h1>{title.header} {terms.appName}</h1>
             <Switch>
               <Route exact path="/admin" component={Admin} />
               <Route exact path="/" component={Body} />

@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import ApiUrlBuilder from "../functions/ApiUrlBuilder"
 import { createdMeme, editNewMeme } from "../actions/memes"
 
+import { admin } from "../locales/copy"
+
 const Form = (props) => {
   const {
     dispatch,
@@ -13,6 +15,16 @@ const Form = (props) => {
     url,
     width,
   } = props
+
+  const {
+    failureLabel,
+    heightLabel,
+    nameLabel,
+    submitText,
+    successLabel,
+    urlLabel,
+    widthLabel,
+  } = admin
 
   const handleChange = (e) => {
     const action = editNewMeme({ [e.target.name]: e.target.value })
@@ -48,7 +60,7 @@ const Form = (props) => {
   return (
     <div className="admin-form">
       <div className="label">
-        Image URL
+        {urlLabel}
       </div>
       <div className="input">
         <input
@@ -60,7 +72,7 @@ const Form = (props) => {
         />
       </div>
       <div className="label">
-        Name
+        {nameLabel}
       </div>
       <div className="input">
         <input
@@ -72,7 +84,7 @@ const Form = (props) => {
       </div>
       <div className="dimensions">
         <div className="label">
-          Height
+          {heightLabel}
         </div>
         <div className="input">
           <input
@@ -85,7 +97,7 @@ const Form = (props) => {
       </div>
       <div className="dimensions">
         <div className="label">
-          Width
+          {widthLabel}
         </div>
         <div className="input">
           <input
@@ -99,7 +111,7 @@ const Form = (props) => {
 
       <div className="success-radio">
         <div className="label">
-          Success
+          {successLabel}
         </div>
         <div className="input">
           <input
@@ -113,7 +125,7 @@ const Form = (props) => {
       </div>
       <div className="success-radio">
         <div className="label">
-          Failure
+          {failureLabel}
         </div>
         <div className="input">
           <input
@@ -130,7 +142,7 @@ const Form = (props) => {
           type="submit"
           onClick={submit}
         >
-            Submit
+            {submitText}
         </button>
       </div>
     </div>
