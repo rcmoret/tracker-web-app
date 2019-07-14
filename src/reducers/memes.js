@@ -1,3 +1,5 @@
+import { shuffle } from "../functions/CollectionHelpers"
+
 const initialNew = {
   url: "",
   name: "",
@@ -7,13 +9,33 @@ const initialNew = {
 }
 
 const initialState = {
-  collection: [
-    {
-      url: 'http.cat/404',
-    }
-  ],
+  success: {
+    index: 0,
+    collection: [
+      {
+        height: 200,
+        name: "404",
+        url: "https://http.cat/404",
+        width: 200,
+        success: true,
+      },
+    ],
+  },
+  failure: {
+    index: 0,
+    collection: [
+      {
+        height: 200,
+        name: "404",
+        url: "https://http.cat/404",
+        width: 200,
+        success: false,
+      },
+    ],
+  },
   fetched: false,
   new: initialNew,
+  index: 0,
 }
 
 export default (state = initialState, action) => {
@@ -34,7 +56,14 @@ export default (state = initialState, action) => {
     }
   case "MEMES_FETCHED":
     return {
-      collection: action.payload,
+      failure: {
+        ...state.failure,
+        collection: shuffle(action.payload.filter(meme => !meme.success)),
+      },
+      success: {
+        ...state.success,
+        collection: shuffle(action.payload.filter(meme => meme.success)),
+      },
       fetched: true,
     }
     default:

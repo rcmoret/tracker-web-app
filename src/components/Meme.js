@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import ApiUrlBuilder from "../functions/ApiUrlBuilder"
 import CalculateStreak from "../functions/CalculateStreak"
 import { memesFetched } from "../actions/memes"
-import { sampleFrom } from "../functions/CollectionHelpers"
 
 const Meme = (props) => {
   const {
@@ -53,11 +52,20 @@ const Meme = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  const streak = CalculateStreak(state.problems.history)
+  const { history } = state.problems
+  const streak = CalculateStreak(history)
+  const { failure } = state.memes
+  const failureMeme = failure.collection[failure.index]
+  const { success } = state.memes
+  const successMeme = success.collection[success.index]
+  const selectedMeme = history[0] === "success" ? successMeme : failureMeme
+
   return {
+    failureMeme: failureMeme,
     fetched: state.memes.fetched,
-    selectedMeme: sampleFrom(state.memes.collection),
-    showMeme: (streak >= 5)
+    successMeme: successMeme,
+    selectedMeme: selectedMeme,
+    showMeme: ((streak >= 5 && streak % 5 === 0) || history[0] === "failure")
   }
 }
 
