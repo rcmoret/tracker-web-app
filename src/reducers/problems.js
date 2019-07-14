@@ -1,3 +1,9 @@
+import { problem as problemCopy } from "../locales/copy"
+import { sampleFrom } from "../functions/CollectionHelpers"
+
+const randomFailureMessage = () => sampleFrom(problemCopy.failureMessages)
+const randomSuccessMessage = () => sampleFrom(problemCopy.successMessages)
+
 const initialState = {
   collection: [
     {
@@ -7,10 +13,12 @@ const initialState = {
     }
   ],
   answer: "",
+  failureMessage: randomFailureMessage(),
   fetched: false,
+  history: [],
   index: 0,
   lastAnswer: "",
-  history: [],
+  successMessage: randomSuccessMessage(),
 }
 
 const addSuccessfulAttempt = (problem) => {
@@ -40,6 +48,7 @@ export default (state = initialState, action) => {
       lastAnswer: "correct",
       index: (state.index + 1),
       history: ["success", ...state.history],
+      successMessage: randomSuccessMessage(),
     }
   case "LOG_INCORRECT_ANSWER":
     return {
@@ -48,9 +57,10 @@ export default (state = initialState, action) => {
         problem.id === action.payload.id ? addFailedAttempt(problem) : problem
       ),
       answer: "",
-      lastAnswer: "incorrect",
+      failureMessage: randomFailureMessage(),
       index: (state.index + 1),
       history: ["failure", ...state.history],
+      lastAnswer: "incorrect",
     }
   case "PROBLEMS_COLLECTION_FETCHED":
     return {

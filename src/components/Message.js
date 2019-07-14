@@ -1,17 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Message = ({ lastAnswer }) => {
+const Message = ({ failureMessage, lastAnswer, successMessage }) => {
   if (lastAnswer === "correct") {
     return (
       <div className="message success">
-        <h4>Great Job!</h4>
+        <h4>{successMessage}</h4>
       </div>
     )
   } else if (lastAnswer === "incorrect") {
     return (
       <div className="message failure">
-        <h4>Better luck next time!</h4>
+        <h4>{failureMessage}</h4>
       </div>
     )
   } else {
@@ -20,7 +20,11 @@ const Message = ({ lastAnswer }) => {
 }
 
 const mapStateToProps = (state) => {
-  return { lastAnswer: state.problems.lastAnswer }
+  return {
+    failureMessage: state.problems.failureMessage,
+    lastAnswer: state.problems.lastAnswer,
+    successMessage: state.problems.successMessage,
+  }
 }
 
 export default connect(mapStateToProps)(Message)
