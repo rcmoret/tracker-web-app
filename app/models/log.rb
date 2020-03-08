@@ -7,3 +7,4 @@ module Log
 end
 
 require './app/models/log/entry'
+require './app/models/log/detail'
