@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
   create_table "log_details", force: :cascade do |t|
     t.integer "log_entry_id", null: false
     t.integer "unit_id", null: false
-    t.float "unit", null: false
+    t.float "rating", null: false
     t.index ["log_entry_id"], name: "index_log_details_on_log_entry_id"
     t.index ["unit_id"], name: "index_log_details_on_unit_id"
   end
