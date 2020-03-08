@@ -3,6 +3,7 @@
 require './app/models/day/record'
 require './app/models/day/tag'
 require './app/models/day/tag_join'
+require './app/models/day/presenter'
 
 module Day
   def self.model
