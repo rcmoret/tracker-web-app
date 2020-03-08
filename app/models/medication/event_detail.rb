@@ -4,5 +4,9 @@ module Medication
   class EventDetail < ActiveRecord::Base
     belongs_to :event, foreign_key: :medication_event_id
     belongs_to :type, foreign_key: :medication_type_id
+
+    def presentable
+      EventDetailPresenter.new(self)
+    end
   end
 end
