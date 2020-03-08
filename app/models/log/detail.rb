@@ -6,4 +6,3 @@ module Log
     belongs_to :entry, foreign_key: :log_entry_id
   end
 end
-
