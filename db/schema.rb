@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_031836) do
+ActiveRecord::Schema.define(version: 2020_03_08_032601) do
+
+  create_table "day_tags", force: :cascade do |t|
+    t.integer "day_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["day_id"], name: "index_day_tags_on_day_id"
+    t.index ["tag_id"], name: "index_day_tags_on_tag_id"
+  end
 
   create_table "days", force: :cascade do |t|
     t.integer "day", limit: 31, null: false

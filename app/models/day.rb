@@ -2,6 +2,7 @@
 
 require './app/models/day/record'
 require './app/models/day/tag'
+require './app/models/day/tag_join'
 
 module Day
   def self.model
@@ -12,7 +13,9 @@ module Day
     all
     find
     find_by
+    first
     for
+    last
     where
   ].freeze
 
