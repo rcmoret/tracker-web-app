@@ -25,4 +25,6 @@ yarn-error.log*
 /src/locales/overrides/copy.js
 /src/locales/overrides/terms.js
 /src/constants/ApiConfig.js
+config/database.yml
+config/settings.rb
 /log/*
