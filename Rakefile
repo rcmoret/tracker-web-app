@@ -32,5 +32,6 @@ namespace :app do
     require './app/models/day'
     require './app/models/unit'
     require './app/models/victual'
+    require './app/models/snack/event'
   end
 end
