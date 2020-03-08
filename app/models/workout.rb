@@ -7,3 +7,4 @@ module Workout
 end
 
 require './app/models/workout/event'
+require './app/models/workout/activity'
