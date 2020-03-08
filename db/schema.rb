@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_054620) do
+ActiveRecord::Schema.define(version: 2020_03_08_055605) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 2020_03_08_054620) do
     t.integer "day", limit: 31, null: false
     t.integer "month", limit: 12, null: false
     t.integer "year", null: false
+  end
+
+  create_table "log_entries", force: :cascade do |t|
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "meal_event_details", force: :cascade do |t|

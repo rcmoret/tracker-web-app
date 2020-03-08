@@ -37,5 +37,6 @@ namespace :app do
     require './app/models/medication'
     require './app/models/supplement'
     require './app/models/workout'
+    require './app/models/log'
   end
 end
