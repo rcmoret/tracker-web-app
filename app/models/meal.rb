@@ -7,3 +7,4 @@ module Meal
 end
 
 require './app/models/meal/event'
+require './app/models/meal/event_detail'
