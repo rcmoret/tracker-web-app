@@ -7,3 +7,5 @@ module Medication
 end
 
 require './app/models/medication/type'
+require './app/models/medication/event'
+require './app/models/medication/event_detail'
