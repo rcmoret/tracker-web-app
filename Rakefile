@@ -29,6 +29,7 @@ namespace :app do
     Bundler.require(:development)
     require './config/settings'
     require './config/environments'
+    require './app/models/presentable'
     require './app/models/day'
     require './app/models/unit'
     require './app/models/victual'

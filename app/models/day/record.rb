@@ -2,6 +2,7 @@
 
 module Day
   class Record < ActiveRecord::Base
+    include Presentable
     self.table_name = :days
     has_many :tag_joins, class_name: 'Day::TagJoin', foreign_key: :day_id
     has_many :tags, through: :tag_joins
@@ -18,11 +19,11 @@ module Day
       @as_date ||= Date.new(year, month, day)
     end
 
-    def presentable
-      Presenter.new(self)
-    end
-
     private
+
+    def presenter_klass
+      Presenter
+    end
 
     def valid_day!
       return if normal_month?
