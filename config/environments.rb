@@ -1,7 +1,14 @@
+# frozen_string_literal: true
+
+# rubocop:disable Style/GlobalVars
 configure do
-  CONFIG = { db_config: YAML.load(File.open('./config/database.yml'))[ENV['RACK_ENV']] }
-  load "./config/initializers/database.rb"
-  load "./config/environments/#{ENV['RACK_ENV']}.rb"
+  environment = ENV['RACK_ENV']
+  db_yml = File.open('./config/database.yml')
+  db_config = YAML.safe_load(db_yml).fetch(environment)
+  CONFIG = { db_config: db_config }.freeze
+  load './config/initializers/database.rb'
+  load "./config/environments/#{environment}.rb"
   enable :logging
-  $logger = Logger.new("./log/sinatra.log")
+  $logger = Logger.new('./log/sinatra.log')
 end
+# rubocop:enable Style/GlobalVars
