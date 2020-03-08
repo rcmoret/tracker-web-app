@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_032601) do
+ActiveRecord::Schema.define(version: 2020_03_08_034040) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 2020_03_08_032601) do
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "display_name", null: false
+    t.index ["name"], name: "index_units_on_name", unique: true
   end
 
 end
