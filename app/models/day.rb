@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './app/models/day/record'
+require './app/models/day/tag'
 
 module Day
   def self.model

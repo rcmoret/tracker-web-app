@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_023252) do
+ActiveRecord::Schema.define(version: 2020_03_08_031836) do
 
   create_table "days", force: :cascade do |t|
     t.integer "day", limit: 31, null: false
     t.integer "month", limit: 12, null: false
     t.integer "year", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
 end
