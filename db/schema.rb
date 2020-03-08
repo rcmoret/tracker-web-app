@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_054108) do
+ActiveRecord::Schema.define(version: 2020_03_08_054620) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(version: 2020_03_08_054108) do
   create_table "workout_activities", force: :cascade do |t|
     t.string "name", null: false
     t.index ["name"], name: "index_workout_activities_on_name", unique: true
+  end
+
+  create_table "workout_event_details", force: :cascade do |t|
+    t.integer "workout_event_id", null: false
+    t.integer "workout_activity_id", null: false
+    t.integer "unit_id", null: false
+    t.index ["unit_id"], name: "index_workout_event_details_on_unit_id"
+    t.index ["workout_activity_id"], name: "index_workout_event_details_on_workout_activity_id"
+    t.index ["workout_event_id"], name: "index_workout_event_details_on_workout_event_id"
   end
 
   create_table "workout_events", force: :cascade do |t|
