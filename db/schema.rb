@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
 
   create_table "meal_event_details", force: :cascade do |t|
     t.integer "meal_event_id", null: false
-    t.integer "quantity", null: false
+    t.float "quantity", null: false
     t.integer "victual_item_id", null: false
     t.index ["meal_event_id"], name: "index_meal_event_details_on_meal_event_id"
     t.index ["victual_item_id"], name: "index_meal_event_details_on_victual_item_id"
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
 
   create_table "snack_events", force: :cascade do |t|
     t.datetime "event_time", null: false
-    t.integer "quantity", null: false
+    t.float "quantity", null: false
     t.integer "victual_item_id", null: false
     t.index ["victual_item_id"], name: "index_snack_events_on_victual_item_id"
   end
 
   create_table "supplement_event_details", force: :cascade do |t|
-    t.integer "quantity", null: false
+    t.float "quantity", null: false
     t.integer "supplement_event_id", null: false
     t.integer "supplement_type_id", null: false
     t.index ["supplement_event_id"], name: "index_supplement_event_details_on_supplement_event_id"
