@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_053010) do
+ActiveRecord::Schema.define(version: 2020_03_08_053249) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2020_03_08_053010) do
     t.integer "quantity", null: false
     t.integer "victual_item_id", null: false
     t.index ["victual_item_id"], name: "index_snack_events_on_victual_item_id"
+  end
+
+  create_table "supplement_event_details", force: :cascade do |t|
+    t.integer "quantity", null: false
+    t.integer "supplement_event_id", null: false
+    t.integer "supplement_type_id", null: false
+    t.index ["supplement_event_id"], name: "index_supplement_event_details_on_supplement_event_id"
+    t.index ["supplement_type_id"], name: "index_supplement_event_details_on_supplement_type_id"
   end
 
   create_table "supplement_events", force: :cascade do |t|
