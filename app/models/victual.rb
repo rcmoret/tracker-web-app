@@ -7,3 +7,4 @@ module Victual
 end
 
 require './app/models/victual/type'
+require './app/models/victual/item'

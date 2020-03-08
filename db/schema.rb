@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_034446) do
+ActiveRecord::Schema.define(version: 2020_03_08_035610) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_03_08_034446) do
     t.string "name", null: false
     t.string "display_name", null: false
     t.index ["name"], name: "index_units_on_name", unique: true
+  end
+
+  create_table "victual_items", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "unit_id", null: false
+    t.integer "victual_type_id", null: false
+    t.index ["name"], name: "index_victual_items_on_name", unique: true
+    t.index ["unit_id"], name: "index_victual_items_on_unit_id"
+    t.index ["victual_type_id"], name: "index_victual_items_on_victual_type_id"
   end
 
   create_table "victual_types", force: :cascade do |t|

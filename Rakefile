@@ -30,6 +30,7 @@ namespace :app do
     require './config/settings'
     require './config/environments'
     require './app/models/day'
+    require './app/models/unit'
     require './app/models/victual'
   end
 end
