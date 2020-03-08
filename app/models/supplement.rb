@@ -7,3 +7,4 @@ module Supplement
 end
 
 require './app/models/supplement/type'
+require './app/models/supplement/event'
