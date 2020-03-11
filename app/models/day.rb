@@ -25,4 +25,17 @@ module Day
       model.send(method, *args)
     end
   end
+
+  def self.method_missing(method, *args)
+    super unless respond_to_missing?(method)
+
+    define_method method do
+      model.send(method, *args)
+    end
+    model.send(method, *args)
+  end
+
+  def self.respond_to_missing?(method)
+    model.respond_to?(method) || super
+  end
 end
