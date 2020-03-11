@@ -31,6 +31,7 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubi (1.8.0)
+    graphql (1.10.4)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     loofah (2.2.3)
@@ -90,6 +91,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  graphql
   rack-cors
   rb-readline
   sinatra
@@ -98,4 +100,4 @@ DEPENDENCIES
   standalone_migrations
 
 BUNDLED WITH
-   2.0.2
+   2.1.4

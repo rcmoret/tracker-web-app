@@ -7,6 +7,10 @@ use Rack::Cors do
   end
 end
 
-# map '/memes' do
-#   run MemesApi.new
-# end
+map '/graphiql' do
+  run Service::Graphiql.new
+end
+
+map '/api/graphql' do
+  run API::Graphql.new
+end
