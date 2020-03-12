@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
 
   create_table "meal_events", force: :cascade do |t|
     t.datetime "event_time", null: false
+    t.integer "meal_type_id", null: false
+    t.index ["meal_type_id"], name: "index_meal_events_on_meal_type_id"
+  end
+
+  create_table "meal_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.index ["name"], name: "index_meal_types_on_name", unique: true
   end
 
   create_table "medication_event_details", force: :cascade do |t|

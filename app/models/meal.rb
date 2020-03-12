@@ -6,5 +6,6 @@ module Meal
   end
 end
 
+require './app/models/meal/type'
 require './app/models/meal/event'
 require './app/models/meal/event_detail'
