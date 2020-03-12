@@ -4,7 +4,6 @@ class CreateVictualItems < ActiveRecord::Migration[5.2]
   def change
     create_table :victual_items do |t|
       t.string :name, null: false
-      t.references :unit, null: false, foreign_key: true
       t.references :victual_type, null: false, foreign_key: true
     end
 

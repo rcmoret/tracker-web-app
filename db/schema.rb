@@ -25,12 +25,17 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
     t.integer "year", null: false
   end
 
+  create_table "log_detail_types", force: :cascade do |t|
+    t.string "description", null: false
+    t.index ["description"], name: "index_log_detail_types_on_description", unique: true
+  end
+
   create_table "log_details", force: :cascade do |t|
     t.integer "log_entry_id", null: false
-    t.integer "unit_id", null: false
-    t.float "rating", null: false
+    t.integer "log_detail_type_id", null: false
+    t.string "rating"
+    t.index ["log_detail_type_id"], name: "index_log_details_on_log_detail_type_id"
     t.index ["log_entry_id"], name: "index_log_details_on_log_entry_id"
-    t.index ["unit_id"], name: "index_log_details_on_unit_id"
   end
 
   create_table "log_entries", force: :cascade do |t|
@@ -43,7 +48,9 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
     t.integer "meal_event_id", null: false
     t.float "quantity", null: false
     t.integer "victual_item_id", null: false
+    t.integer "unit_id", null: false
     t.index ["meal_event_id"], name: "index_meal_event_details_on_meal_event_id"
+    t.index ["unit_id"], name: "index_meal_event_details_on_unit_id"
     t.index ["victual_item_id"], name: "index_meal_event_details_on_victual_item_id"
   end
 
@@ -69,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
     t.datetime "event_time", null: false
     t.float "quantity", null: false
     t.integer "victual_item_id", null: false
+    t.integer "unit_id", null: false
+    t.index ["unit_id"], name: "index_snack_events_on_unit_id"
     t.index ["victual_item_id"], name: "index_snack_events_on_victual_item_id"
   end
 
@@ -104,10 +113,8 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
 
   create_table "victual_items", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "unit_id", null: false
     t.integer "victual_type_id", null: false
     t.index ["name"], name: "index_victual_items_on_name", unique: true
-    t.index ["unit_id"], name: "index_victual_items_on_unit_id"
     t.index ["victual_type_id"], name: "index_victual_items_on_victual_type_id"
   end
 

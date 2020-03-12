@@ -6,6 +6,7 @@ class CreateSnackEvents < ActiveRecord::Migration[5.2]
       t.datetime :event_time, null: false
       t.float :quantity, null: false
       t.references :victual_item, foreign_key: true, null: false
+      t.references :unit, foreign_key: true, null: false
     end
   end
 end
