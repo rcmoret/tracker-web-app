@@ -9,14 +9,12 @@ class BasePresenter < SimpleDelegator
     def attribute(name, &block)
       supplemental_attributes << name
 
+      return unless block_given?
+
       define_method name do
         instance_eval(&block)
       end
     end
-  end
-
-  def supplemental_attributes
-    self.class.supplemental_attributes
   end
 
   def attributes
@@ -29,5 +27,9 @@ class BasePresenter < SimpleDelegator
 
   def object
     __getobj__
+  end
+
+  def supplemental_attributes
+    self.class.supplemental_attributes
   end
 end
