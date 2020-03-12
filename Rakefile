@@ -47,6 +47,7 @@ namespace :app do
     require './app/graphql/schema'
     require './app/api/helper'
     require './app/api/graphql'
+    require './app/api/medication'
     require './app/api/unit'
     require './app/api/victual'
   end
