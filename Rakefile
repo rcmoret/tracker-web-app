@@ -45,7 +45,9 @@ namespace :app do
     require './app/models/log'
     require './app/service/graphiql'
     require './app/graphql/schema'
+    require './app/api/helper'
     require './app/api/graphql'
+    require './app/api/unit'
   end
 end
 # rubocop:enable Metrics/BlockLength

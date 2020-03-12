@@ -14,3 +14,7 @@ end
 map '/api/graphql' do
   run API::Graphql.new
 end
+
+map '/api/units' do
+  run API::Unit.new
+end
