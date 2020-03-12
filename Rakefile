@@ -48,6 +48,7 @@ namespace :app do
     require './app/api/helper'
     require './app/api/graphql'
     require './app/api/unit'
+    require './app/api/victual'
   end
 end
 # rubocop:enable Metrics/BlockLength

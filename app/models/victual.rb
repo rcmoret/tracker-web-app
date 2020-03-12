@@ -8,3 +8,4 @@ end
 
 require './app/models/victual/type'
 require './app/models/victual/item'
+require './app/models/victual/item_presenter'

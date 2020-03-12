@@ -18,3 +18,7 @@ end
 map '/api/units' do
   run API::Unit.new
 end
+
+map '/api/victuals' do
+  run API::VictualItem.new
+end
