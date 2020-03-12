@@ -19,6 +19,10 @@ map '/api/medications' do
   run API::Medication.new
 end
 
+map '/api/supplements' do
+  run API::Supplement.new
+end
+
 map '/api/units' do
   run API::Unit.new
 end

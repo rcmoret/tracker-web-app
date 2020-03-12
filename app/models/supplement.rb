@@ -7,5 +7,6 @@ module Supplement
 end
 
 require './app/models/supplement/type'
+require './app/models/supplement/type_presenter'
 require './app/models/supplement/event'
 require './app/models/supplement/event_detail'
