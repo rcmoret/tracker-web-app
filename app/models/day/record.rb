@@ -15,10 +15,6 @@ module Day
       find_or_create_by(day: day, month: month, year: year)
     end
 
-    def as_date
-      @as_date ||= Date.new(year, month, day)
-    end
-
     private
 
     def presenter_klass

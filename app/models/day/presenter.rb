@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Day
-  class Presenter < SimpleDelegator
+  class Presenter < BasePresenter
     DATE_METHODS = %i[
       monday?
       tuesday?
@@ -12,13 +12,17 @@ module Day
       sunday?
     ].freeze
 
-    def tags
-      calculated_tags + super.map(&:name)
+    attribute :tags do
+      calculated_tags + object.tags.map(&:name)
     end
 
     private
 
-    delegate(*DATE_METHODS, to: :as_date)
+    def date
+      @date ||= Date.new(year, month, day)
+    end
+
+    delegate(*DATE_METHODS, to: :date)
 
     def calculated_tags
       tags = []

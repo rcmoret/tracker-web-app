@@ -33,6 +33,7 @@ namespace :app do
     require './config/settings'
     require './config/environments'
     require './app/models/presentable'
+    require './app/models/base_presenter'
     require './app/models/day'
     require './app/models/unit'
     require './app/models/victual'
