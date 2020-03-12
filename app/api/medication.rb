@@ -11,7 +11,7 @@ module API
 
     post '/' do
       if medication.save
-        json medication.presentable.attributes
+        json medication.presentable
       else
         json medication.errors, status: 422
       end
@@ -24,10 +24,7 @@ module API
     end
 
     def all
-      model
-        .all
-        .map(&:presentable)
-        .map(&:attributes)
+      model.all.map(&:presentable)
     end
 
     def medication

@@ -24,10 +24,7 @@ module API
     end
 
     def all
-      model
-        .all
-        .map(&:presentable)
-        .map(&:attributes)
+      model.all.map(&:presentable)
     end
 
     def victual_item

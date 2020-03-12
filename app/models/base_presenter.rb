@@ -3,23 +3,21 @@
 class BasePresenter < SimpleDelegator
   class << self
     def supplemental_attributes
-      @supplemental_attributes ||= []
+      @supplemental_attributes ||= {}
     end
 
     def attribute(name, &block)
-      supplemental_attributes << name
-
-      return unless block_given?
-
-      define_method name do
-        instance_eval(&block)
-      end
+      supplemental_attributes.merge!(name => block)
     end
   end
 
   def attributes
-    supplemental_attributes.reduce(super.deep_symbolize_keys) do |hash, supplemental_attr|
-      hash.merge(supplemental_attr => send(supplemental_attr))
+    supplemental_attributes.reduce(super.deep_symbolize_keys) do |hash, (key, block)|
+      if block.nil?
+        hash.merge(key => send(key))
+      else
+        hash.merge(key => instance_eval(&block))
+      end
     end
   end
 

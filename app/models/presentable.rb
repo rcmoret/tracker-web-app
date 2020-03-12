@@ -2,6 +2,12 @@
 
 module Presentable
   def presentable
-    presenter_klass.new(self)
+    @presentable ||= presenter.attributes
+  end
+
+  private
+
+  def presenter
+    @presenter ||= presenter_klass.new(self)
   end
 end
