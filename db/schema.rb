@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_060125) do
+ActiveRecord::Schema.define(version: 2020_03_13_130813) do
 
   create_table "day_tags", force: :cascade do |t|
     t.integer "day_id", null: false
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(version: 2020_03_08_060125) do
     t.integer "medication_type_id", null: false
     t.index ["medication_event_id"], name: "index_medication_event_details_on_medication_event_id"
     t.index ["medication_type_id"], name: "index_medication_event_details_on_medication_type_id"
+  end
+
+  create_table "medication_events", force: :cascade do |t|
+    t.datetime "event_time", null: false
   end
 
   create_table "medication_types", force: :cascade do |t|
