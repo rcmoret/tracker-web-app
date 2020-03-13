@@ -5,6 +5,8 @@ module Medication
     include Presentable
     belongs_to :event, foreign_key: :medication_event_id
     belongs_to :type, foreign_key: :medication_type_id
+    alias_attribute :medication_event_id, :event_id
+    alias_attribute :medication_type_id, :type_id
 
     private
 
