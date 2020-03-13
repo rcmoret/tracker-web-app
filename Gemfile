@@ -13,3 +13,14 @@ group :development do
   gem 'sqlite3'
   gem 'standalone_migrations'
 end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_bot'
+  gem 'pry'
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'rspec-its'
+  gem 'shoulda-matchers'
+  gem 'timecop'
+end
