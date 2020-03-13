@@ -7,5 +7,8 @@ module Meal
 end
 
 require './app/models/meal/type'
+require './app/models/meal/event_presenter'
 require './app/models/meal/event'
+require './app/models/meal/form'
 require './app/models/meal/event_detail'
+require './app/models/meal/event_detail_presenter'

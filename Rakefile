@@ -48,6 +48,7 @@ namespace :app do
     require './app/api/helper'
     require './app/api/graphql'
     require './app/api/medication'
+    require './app/api/meal'
     require './app/api/supplement'
     require './app/api/unit'
     require './app/api/victual'
