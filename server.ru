@@ -23,6 +23,10 @@ map '/api/medications' do
   run API::Medication.new
 end
 
+map '/api/snacks' do
+  run Snack::API::Events.new
+end
+
 map '/api/supplements' do
   run API::Supplement.new
 end
