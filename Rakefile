@@ -8,7 +8,6 @@ StandaloneMigrations::Tasks.load_tasks
 task default: 'app:start'
 task console: 'app:console'
 
-# rubocop:disable Metrics/BlockLength
 namespace :app do
   desc 'Start application'
   task start: :setup do
@@ -30,8 +29,10 @@ namespace :app do
     Bundler.require(:development)
     require 'graphql'
     require 'sinatra'
+    require 'sinatra/contrib'
     require './config/settings'
     require './config/environments'
+    require './app/api_helper'
     require './app/models/presentable'
     require './app/models/base_presenter'
     require './app/models/day'
@@ -45,12 +46,9 @@ namespace :app do
     require './app/models/log'
     require './app/service/graphiql'
     require './app/graphql/schema'
-    require './app/api/helper'
     require './app/api/graphql'
     require './app/api/medication'
-    require './app/api/supplement'
     require './app/api/unit'
     require './app/api/victual'
   end
 end
-# rubocop:enable Metrics/BlockLength

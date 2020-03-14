@@ -28,7 +28,11 @@ map '/api/snacks' do
 end
 
 map '/api/supplements' do
-  run API::Supplement.new
+  run Supplement::API::Events.new
+end
+
+map '/api/supplement/types' do
+  run Supplement::API::Types.new
 end
 
 map '/api/units' do

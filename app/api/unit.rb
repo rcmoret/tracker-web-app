@@ -2,7 +2,7 @@
 
 module API
   class Unit < Sinatra::Base
-    include Helper
+    include APIHelper
     before { content_type 'application/json' }
 
     get '/' do

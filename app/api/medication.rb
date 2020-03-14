@@ -2,8 +2,12 @@
 
 module API
   class Medication < Sinatra::Base
-    include Helper
+    include APIHelper
     before { content_type 'application/json' }
+
+    get '/types' do
+      json all_types
+    end
 
     get '/' do
       json all
@@ -19,20 +23,20 @@ module API
 
     private
 
-    def model
+    def type_model
       ::Medication::Type
     end
 
-    def all
-      model.all.map(&:presentable)
+    def all_types
+      @all_types ||= type_model.all.map(&:presentable)
     end
 
     def medication
-      @medication ||= model.new(medication_params)
+      @medication ||= type_model.new(medication_type_params)
     end
 
-    def medication_params
-      request_params.slice(*model::PUBLIC_ATTRS)
+    def medication_type_params
+      request_params.slice(*type_model::PUBLIC_ATTRS)
     end
   end
 end

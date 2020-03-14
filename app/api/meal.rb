@@ -2,7 +2,9 @@
 
 module API
   class Meal < Sinatra::Base
-    include Helper
+    include APIHelper
+    register Sinatra::Namespace
+
     before { content_type 'application/json' }
 
     get '/' do

@@ -2,7 +2,7 @@
 
 module API
   class Snack < Sinatra::Base
-    include Helper
+    include APIHelper
     before { content_type 'application/json' }
 
     get '/' do
