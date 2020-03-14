@@ -17,11 +17,26 @@ module API
       end
     end
 
-    post %r{/(?<id>\d+)/detail} do
-      if detail.save
-        json detail.presentable
-      else
-        json form.errors, status: 422
+    namespace %r{/(?<id>\d+)} do
+      post '/detail' do
+        if detail.save
+          json detail.presentable
+        else
+          json form.errors, status: 422
+        end
+      end
+
+      delete %r{/detail/(?<detail_id>\d+)} do
+        detail.destroy
+        json {}
+      end
+
+      delete '' do
+        if meal_event.destroy
+          json {}
+        else
+          json({ 'errors' => 'cannot delete events with details present' }, status: 422)
+        end
       end
     end
 
@@ -32,7 +47,7 @@ module API
     end
 
     def all
-      model.all.map(&:presentable)
+      @all ||= model.all.map(&:presentable)
     end
 
     def meal_event
@@ -40,7 +55,7 @@ module API
     end
 
     def detail
-      meal_event.details.build(detail_params)
+      @detail ||= meal_event.details.build(detail_params)
     end
 
     def form
@@ -48,11 +63,15 @@ module API
     end
 
     def meal_params
-      request_params.slice(*model::PUBLIC_ATTRS)
+      @meal_params ||= request_params.slice(*model::PUBLIC_ATTRS)
+    end
+
+    def event_detail
+      @event_detail = meal_event.details.find(request_params['detail_id'])
     end
 
     def detail_params
-      request_params.slice(*::Meal::EventDetail::PUBLIC_ATTRS)
+      @detail_params ||= request_params.slice(*::Meal::EventDetail::PUBLIC_ATTRS)
     end
   end
 end

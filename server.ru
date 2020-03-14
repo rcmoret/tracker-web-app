@@ -16,7 +16,7 @@ map '/api/graphql' do
 end
 
 map '/api/meals' do
-  run API::Meal.new
+  run Meal::API::Events.new
 end
 
 map '/api/medications' do

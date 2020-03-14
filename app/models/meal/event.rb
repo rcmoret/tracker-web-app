@@ -14,6 +14,16 @@ module Meal
       type_id
     ].freeze
 
+    def self.form
+      Form
+    end
+
+    def destroy
+      return false if details.any?
+
+      super
+    end
+
     private
 
     def presenter_klass
