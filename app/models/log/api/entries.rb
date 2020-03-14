@@ -5,18 +5,12 @@ module Log
     class Entries < Sinatra::Base
       include APIHelper::Collection
       include APIHelper::DeletableObject
+      include APIHelper::DeletableDetail
       include APIHelper::NewDetail
       include APIHelper::NewObject
       include APIHelper::Params
       register Sinatra::Namespace
       before { content_type 'application/json' }
-
-      namespace ID_REGEXP do
-        delete %r{/detail/(?<detail_id>\d+)} do
-          detail.destroy
-          json {}
-        end
-      end
 
       private
 
@@ -30,10 +24,6 @@ module Log
 
       def detail_klass
         EntryDetail
-      end
-
-      def detail
-        @detail ||= object.details.find(request_params['detail_id'])
       end
     end
   end

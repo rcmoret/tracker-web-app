@@ -20,6 +20,27 @@ module APIHelper
     end
   end
 
+  module DeletableDetail
+    include Object
+
+    def self.included(base)
+      base.class_eval do
+        namespace ID_REGEXP do
+          delete %r{/detail/(?<detail_id>\d+)} do
+            detail.destroy
+            json {}
+          end
+        end
+      end
+    end
+
+    private
+
+    def detail
+      @detail ||= object.details.find(request_params['detail_id'])
+    end
+  end
+
   module DeletableObject
     include Object
 
