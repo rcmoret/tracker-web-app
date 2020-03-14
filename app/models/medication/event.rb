@@ -6,6 +6,10 @@ module Medication
     validates :event_time, presence: true
     has_many :details, class_name: 'EventDetail', foreign_key: :medication_event_id
 
+    def self.form
+      Form
+    end
+
     private
 
     def presenter_klass
