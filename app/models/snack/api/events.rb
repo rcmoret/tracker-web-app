@@ -3,10 +3,12 @@
 module Snack
   module API
     class Events < Sinatra::Base
-      before { content_type 'application/json' }
       include APIHelper::Collection
+      include APIHelper::DeletableObject
       include APIHelper::NewObject
       include APIHelper::Params
+      register Sinatra::Namespace
+      before { content_type 'application/json' }
 
       private
 

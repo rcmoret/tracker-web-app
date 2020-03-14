@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/MethodLength
 module APIHelper
+  ID_REGEXP = %r{/(?<id>\d+)}.freeze
+
   module Collection
     def self.included(base)
       base.class_eval do
@@ -15,9 +20,53 @@ module APIHelper
     end
   end
 
-  module Details
-    def event_detail_params(model)
-      @event_detail_params ||= request_params.slice(*model::PUBLIC_ATTRS)
+  module DeletableObject
+    include Object
+
+    def self.included(base)
+      base.class_eval do
+        namespace ID_REGEXP do
+          delete '' do
+            if not_found?
+              render_not_found(model, id)
+            elsif object.destroy
+              json {}
+            else
+              json({ 'errors' => 'cannot delete record with dependents' }, status: 422)
+            end
+          end
+        end
+      end
+    end
+  end
+
+  module NewDetail
+    include Object
+
+    def self.included(base)
+      base.class_eval do
+        namespace ID_REGEXP do
+          post '/detail' do
+            if not_found?
+              render_not_found(model, id)
+            elsif new_detail.save
+              json new_detail.presentable
+            else
+              json new_detail.errors, status: 422
+            end
+          end
+        end
+      end
+    end
+
+    private
+
+    def new_detail
+      @new_detail ||= object.details.build(event_detail_params)
+    end
+
+    def event_detail_params
+      @event_detail_params ||= request_params.slice(*detail_klass::PUBLIC_ATTRS)
     end
   end
 
@@ -46,8 +95,6 @@ module APIHelper
   end
 
   module Object
-    ID_REGEXP = %r{/(?<id>\d+)}.freeze
-
     def id
       @id ||= request_params['id']
     end
@@ -92,3 +139,6 @@ module APIHelper
     end
   end
 end
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/BlockLength
+# rubocop:enable Metrics/AbcSize
