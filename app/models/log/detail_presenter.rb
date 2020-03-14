@@ -2,8 +2,8 @@
 
 module Log
   class DetailPresenter < BasePresenter
-    attribute :description do
-      "#{rating} for #{unit.display_name}"
+    attribute :type do
+      type.description
     end
   end
 end

@@ -4,6 +4,19 @@ module Log
   class Entry < ActiveRecord::Base
     includes Presentable
     validates :notes, presence: true
+    validates :event_time, presence: true
+    alias_attribte :narrative, :notes
+
+    PUBLIC_ATTRS = %w[
+      event_time
+      narrative
+    ].freeze
+
+    attribute
+
+    def self.form
+      Form
+    end
 
     private
 
