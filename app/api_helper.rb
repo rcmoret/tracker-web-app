@@ -20,6 +20,22 @@ module APIHelper
     end
   end
 
+  module Object
+    def id
+      @id ||= request_params['id']
+    end
+
+    def not_found?
+      @not_found ||= !model.exists?(id: id)
+    end
+
+    private
+
+    def object
+      @object ||= model.find(id)
+    end
+  end
+
   module DeletableDetail
     include Object
 
@@ -112,22 +128,6 @@ module APIHelper
 
     def form_params
       @form_params ||= request_params.slice(*model::PUBLIC_ATTRS)
-    end
-  end
-
-  module Object
-    def id
-      @id ||= request_params['id']
-    end
-
-    def not_found?
-      @not_found ||= !model.exists?(id: id)
-    end
-
-    private
-
-    def object
-      @object ||= model.find(id)
     end
   end
 

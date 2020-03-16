@@ -46,6 +46,7 @@ namespace :app do
     require './app/models/log'
     require './app/service/graphiql'
     require './app/graphql/schema'
+    require './app/models/snack/api/events'
     require './app/api/graphql'
     require './app/api/medication'
     require './app/api/unit'
