@@ -13,7 +13,22 @@ module Day
     ].freeze
 
     attribute :tags do
-      calculated_tags + object.tags.map(&:name)
+      calculated_tags + tags.map(&:name)
+    end
+
+    COLLECTABLES = {
+      log_entries: Log::Entries,
+      meal_events: Meal::Event,
+      medication_events: Medication::Event,
+      snack_events: Snack::Event,
+      supplement_events: Supplement::Event,
+      workout_events: Workout::Event,
+    }.freeze
+
+    COLLECTABLES.each_pair do |attr, klass|
+      attribute attr do
+        klass.for(date).map(&:presentable)
+      end
     end
 
     private

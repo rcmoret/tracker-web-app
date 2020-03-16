@@ -3,6 +3,7 @@
 module Meal
   class Event < ActiveRecord::Base
     include Presentable
+    include Shared::Scopes::For
     validates :event_time, presence: true
     has_many :details, class_name: 'EventDetail', foreign_key: :meal_event_id
     belongs_to :type, foreign_key: :meal_type_id

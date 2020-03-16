@@ -2,17 +2,16 @@
 
 module Log
   class Entry < ActiveRecord::Base
-    includes Presentable
+    include Presentable
+    include Shared::Scopes::For
     validates :notes, presence: true
     validates :event_time, presence: true
-    alias_attribte :narrative, :notes
+    alias_attribute :narrative, :notes
 
     PUBLIC_ATTRS = %w[
       event_time
       narrative
     ].freeze
-
-    attribute
 
     def self.form
       Form

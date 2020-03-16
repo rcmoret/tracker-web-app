@@ -3,13 +3,13 @@
 module Supplement
   module API
     class Events < Sinatra::Base
+      register Sinatra::Namespace
       include APIHelper::Collection
-      include APIHelper::DeleteableObject
-      include APIHelper::DeleteableDetail
+      include APIHelper::DeletableObject
+      include APIHelper::DeletableDetail
       include APIHelper::NewDetail
       include APIHelper::NewObject
       include APIHelper::Params
-      register Sinatra::Namespace
       before { content_type 'application/json' }
 
       private

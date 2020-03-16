@@ -35,6 +35,7 @@ namespace :app do
     require './app/api_helper'
     require './app/models/presentable'
     require './app/models/base_presenter'
+    require './app/models/shared/scopes'
     require './app/models/day'
     require './app/models/unit'
     require './app/models/victual'
@@ -48,8 +49,6 @@ namespace :app do
     require './app/graphql/schema'
     require './app/models/snack/api/events'
     require './app/api/graphql'
-    require './app/api/medication'
     require './app/api/unit'
-    require './app/api/victual'
   end
 end

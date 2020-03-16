@@ -3,6 +3,7 @@
 module Workout
   class Event < ActiveRecord::Base
     include Presentable
+    include Shared::Scopes::For
     validates :event_time, presence: true
     has_many :details, class_name: 'EventDetail', foreign_key: :workout_event_id
 
