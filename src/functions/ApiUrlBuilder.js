@@ -1,6 +1,4 @@
-const IP_ADDRESS = "http://192.168.1.81"
-const PORT = "4040"
-const API_URL = `${IP_ADDRESS}:${PORT}`
+import { API_URL } from "../constants/ApiConfig"
 
 const ApiUrlBuilder = (path_segments = [], params = {}) => {
   const query = Object.entries(params).map((arr) => { return arr.join("=") }).join("&")
