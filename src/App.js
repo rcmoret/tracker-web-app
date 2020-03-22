@@ -11,6 +11,7 @@ import memesReducer from "./reducers/memes"
 
 import { terms, title } from "./locales/copy"
 import './App.css';
+import "react-datepicker/dist/react-datepicker.css";
 
 const store = createStore(
   combineReducers({
