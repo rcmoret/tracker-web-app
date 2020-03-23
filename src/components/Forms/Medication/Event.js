@@ -44,18 +44,20 @@ export default ({ dispatch, newEvent, types }) => {
   return(
     <div className='medication-event-form'>
       <h2>{titleize(event)}</h2>
-      <div>
+      <div className='mg-bottom'>
         <strong>{titleize(caption)}</strong>
       </div>
-      <DatePicker
-        selected={displayTime}
-        onChange={editDateTime}
-        showTimeSelect
-        timeFormat={format}
-        timeIntervals={pickerInterval}
-        timeCaption={titleize(caption)}
-        dateFormat={dateFormat}
-      />
+      <div className='datepicker'>
+        <DatePicker
+          selected={displayTime}
+          onChange={editDateTime}
+          showTimeSelect
+          timeFormat={format}
+          timeIntervals={pickerInterval}
+          timeCaption={titleize(caption)}
+          dateFormat={dateFormat}
+        />
+      </div>
       {newEvent.details.map((detail, index) => (
         <Detail
           key={index}

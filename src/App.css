@@ -22,13 +22,44 @@ h1 {
   color: white;
 }
 
+.mg-bottom {
+  margin-bottom: 10px;
+}
+
 .medication-event-form {
   background: #67A482; /* green */
   padding: 4%;
 }
 
+.medication-event-form .datepicker {
+  width: 90%;
+}
+
+
+.medication-event-form .datepicker .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.medication-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
+  width: 100%;
+}
+
+.medication-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
+  width: 100%;
+}
+
+.medication-form-detail .quantity {
+  display: flex;
+  justify-content: space-between;
+}
+
 hr.horizontal-separator {
   border-top: 1px solid #8c8b8b;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: black;
 }
 
 .left {

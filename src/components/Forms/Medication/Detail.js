@@ -52,12 +52,18 @@ export default (props) => {
         placeholder={typePlaceholder}
         value={value}
       />
-      <input
-        value={detail.quantity}
-        onChange={onQuantityChange}
-        placeholder={quantity}
-      />
-      {unit}
+      <div className={quantity}>
+        <span className='input'>
+          <input
+            value={detail.quantity}
+            onChange={onQuantityChange}
+            placeholder={quantity}
+          />
+        </span>
+        <span className='unit'>
+          {unit}
+        </span>
+      </div>
     </div>
   )
 }
