@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { titleize } from '../../locales/functions'
-import { sortByName } from '../../functions/sortBy'
+import { sortBy } from '../../functions/sortBy'
 
 export default ({ items, types }) => {
   const groupedData = groupBy(items, types)
@@ -16,7 +16,7 @@ export default ({ items, types }) => {
 const groupBy = (items, types) => {
   const filterFn = (item, typeId) => item.typeId === parseInt(typeId)
   const reducer = (acc, type) => {
-    const collection = items.filter(item => filterFn(item, type.id)).sort(sortByName)
+    const collection = items.filter(item => filterFn(item, type.id)).sort(sortBy('name'))
     acc.push({ ...type, collection: collection })
     return acc
   }

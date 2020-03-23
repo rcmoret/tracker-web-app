@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { sortByName } from '../../functions/sortBy'
+import { sortBy } from '../../functions/sortBy'
 
 export default ({ types }) => {
   return(
     <div className='supplement-event-form'>
       <h3>Supplements</h3>
       <ul>
-          {types.sort(sortByName).map(type => (
+          {types.slice(0).sort(sortBy('name')).map(type => (
             listItem(type)
           ))
           }
