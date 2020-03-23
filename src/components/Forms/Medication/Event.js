@@ -1,24 +1,45 @@
 import React from 'react'
 
 import DatePicker from 'react-datepicker'
+import { Link } from 'react-router-dom'
+import HSeparator from '../../shared/HSeparator'
 
-import { editNewMedicationEvent } from '../actions'
+import { addNewMedicationEventDetail, editNewMedicationEvent } from '../actions'
 import { titleize } from '../../../locales/functions'
 import { shared, medication as copy } from '../../../locales/copy'
 import { config } from '../../../locales/config'
 
 import Detail from './Detail'
 
-const { event } = copy
-const { caption, format } = shared.time
-const { dateFormat, pickerInterval } = config.time
+const {
+  event,
+} = copy
+
+const {
+  octothorp,
+} = shared
+
+const {
+  caption,
+  format,
+} = shared.time
+
+const {
+  dateFormat,
+  pickerInterval,
+} = config.time
 
 export default ({ dispatch, newEvent, types }) => {
   const editDateTime = datetime => {
     const action = editNewMedicationEvent({ event: { eventTime: datetime  } })
     dispatch(action)
   }
+
   const displayTime = newEvent.eventTime === '' ? new Date() : newEvent.eventTime
+
+  const addDetail = () => {
+    dispatch(addNewMedicationEventDetail())
+  }
 
   return(
     <div className='medication-event-form'>
@@ -44,6 +65,13 @@ export default ({ dispatch, newEvent, types }) => {
           types={types}
         />
       ))}
+      <HSeparator />
+      <Link
+        to={octothorp}
+        onClick={addDetail}
+      >
+          {titleize(shared.addDetail)}
+      </Link>
     </div>
   )
 }

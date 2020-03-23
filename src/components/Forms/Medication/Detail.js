@@ -1,7 +1,5 @@
 import React from 'react'
 import Select from 'react-select'
-import { Link } from 'react-router-dom'
-
 
 import { editNewMedicationEvent } from '../actions'
 import { titleize } from '../../../locales/functions'
@@ -20,8 +18,6 @@ export default (props) => {
 
   const { typePlaceholder } = copy
   const {
-    addDetail,
-    octothorp,
     quantity,
   } = shared
 
@@ -62,13 +58,6 @@ export default (props) => {
         placeholder={quantity}
       />
       {unit}
-      <HSeparator />
-      <Link
-        to={octothorp}
-        onClick={() => null}
-      >
-          {titleize(addDetail)}
-      </Link>
     </div>
   )
 }

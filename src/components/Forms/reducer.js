@@ -61,6 +61,17 @@ export default (state = initialState, action) => {
         }
       }
     }
+  case "forms/medication/new/ADD_DETAIL":
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        medicationEvent: {
+          ...state.newEvents.medicationEvent,
+          details: [...state.newEvents.medicationEvent.details, {...newGenericDetail}]
+        }
+      }
+    }
   case "forms/medication/new/EDIT_EVENT":
     return {
       ...state,
