@@ -1,3 +1,3 @@
 export const terms = {
-  appName: "Math Quiz",
+  appName: "tracker",
 }

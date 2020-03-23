@@ -3,20 +3,18 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
-import Admin from "./components/Admin"
 import Body from "./components/Body"
 
-import problemsReducer from "./reducers/problems"
-import memesReducer from "./reducers/memes"
+import formsReducer from "./components/Forms/reducer"
 
 import { terms, title } from "./locales/copy"
+import { titleize } from "./locales/functions"
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
 
 const store = createStore(
   combineReducers({
-    problems: problemsReducer,
-    memes: memesReducer,
+    forms: formsReducer,
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 )
@@ -27,9 +25,8 @@ export default () => {
       <Provider store={store}>
         <Router>
           <header className="App-header">
-            <h1>{title.header} {terms.appName}</h1>
+            <h1>{titleize(terms.appName)}</h1>
             <Switch>
-              <Route exact path="/admin" component={Admin} />
               <Route exact path="/" component={Body} />
             </Switch>
           </header>
