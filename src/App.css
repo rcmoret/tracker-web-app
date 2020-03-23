@@ -1,19 +1,25 @@
-/* dark blue #3B71B2 */
-/* green #588751 */
-/* red #FF6F61 */
-/* light blue #D4E1E8 */
-/* orange #FF6F25 */
+/* Color Theme Swatches in Hex */
+.Faded-Rainbow-1-hex { color: #2D5BB5; }
+.Faded-Rainbow-2-hex { color: #67A482; }
+.Faded-Rainbow-3-hex { color: #E1F88C; }
+.Faded-Rainbow-4-hex { color: #F2B05E; }
+.Faded-Rainbow-5-hex { color: #CC6D59; }
+
+/* blue #2D5BB5 */
+/* green #67A482 */
+/* red #CC6D59 */
+/* orange #F2B05E */
 /* tan #FFE9AC */
-/* yellow #FFF9D2 */
+/* yellow #E1F88C */
 
 
 html {
   padding: 1%;
-  background: #D4E1E8;
+  background: #2D5BB5;
 }
 
 h1 {
-  color: #3B71B2; /* dark blue */
+  color: white;
 }
 
 .left {
@@ -29,7 +35,7 @@ h1 {
 }
 
 .problem {
-  background: #FFF9D2; /* yellow */
+  background: #E1F88C; /* yellow */
   width: 100%;
   padding: 5% 2%;
   border-radius: 15px;
@@ -41,13 +47,13 @@ h1 {
 }
 
 .message.failure {
-  background: #FF6F61; /* red */
-  color: #3B71B2; /* dark blue */
+  background: #CC6D59; /* red */
+  color: #2D5BB5; /* blue */
 }
 
 .message.success {
-  background: #588751; /* green */
-  color: #FFF9D2; /* yellow */
+  background: #67A482; /* green */
+  color: #E1F88C; /* yellow */
 }
 
 .message {
@@ -58,8 +64,8 @@ h1 {
 }
 
 .info {
-  color: #FFF9D2;
-  background: #3B71B2;
+  color: #E1F88C;
+  background: #2D5BB5;
   width: 100%;
   padding: 4% 2%;
   border-radius: 15px;
@@ -69,7 +75,7 @@ h1 {
 .meme {
   margin-left: 5%;
   padding: 10px;
-  background: #FFF9D2;
+  background: #E1F88C;
   border-radius: 25px;
 }
 
