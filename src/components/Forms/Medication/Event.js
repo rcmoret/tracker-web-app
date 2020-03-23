@@ -72,7 +72,8 @@ export default ({ dispatch, newEvent, types }) => {
         to={octothorp}
         onClick={addDetail}
       >
-          {titleize(shared.addDetail)}
+        <i className='fas fa-plus-circle'></i>
+        {titleize(shared.addDetail)}
       </Link>
     </div>
   )
