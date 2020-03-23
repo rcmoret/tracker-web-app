@@ -1,7 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 
-import { editNewMedicationEvent } from '../actions'
+import { editNewMedicationEvent, removeNewMedicationEventDetail } from '../actions'
+import { Link } from 'react-router-dom'
 import { titleize } from '../../../locales/functions'
 import { sortBy } from '../../../functions/sortBy'
 import HSeparator from '../../shared/HSeparator'
@@ -18,6 +19,7 @@ export default (props) => {
 
   const { typePlaceholder } = copy
   const {
+    octothorp,
     quantity,
   } = shared
 
@@ -40,18 +42,34 @@ export default (props) => {
     onChange({ quantity: e.target.value })
   }
 
+  const removeDetail = () => {
+    const action = removeNewMedicationEventDetail({ index: index })
+    dispatch(action)
+  }
+
   const unit = { unit: { displayName: '' }, ...value }.unit.displayName
 
   return (
     <div className='medication-form-detail'>
       <HSeparator />
-      <Select
-        isSearchable={true}
-        onChange={onTypeChange}
-        options={options}
-        placeholder={typePlaceholder}
-        value={value}
-      />
+      <div className='type-select'>
+        <div className='select-box'>
+          <Select
+            isSearchable={true}
+            onChange={onTypeChange}
+            options={options}
+            placeholder={typePlaceholder}
+            value={value}
+          />
+        </div>
+        <div className='close'>
+          <Link
+            to={octothorp}
+            className='far fa-times-circle'
+            onClick={removeDetail}
+          />
+        </div>
+      </div>
       <div className={quantity}>
         <span className='input'>
           <input

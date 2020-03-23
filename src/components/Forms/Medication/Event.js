@@ -10,6 +10,7 @@ import { shared, medication as copy } from '../../../locales/copy'
 import { config } from '../../../locales/config'
 
 import Detail from './Detail'
+import Submit from './Submit'
 
 const {
   event,
@@ -35,6 +36,11 @@ export default ({ dispatch, newEvent, types }) => {
     dispatch(action)
   }
 
+  const refreshDateTime = () => {
+    const action = editNewMedicationEvent({ event: { eventTime: new Date() } })
+    dispatch(action)
+  }
+
   const displayTime = newEvent.eventTime === '' ? new Date() : newEvent.eventTime
 
   const addDetail = () => {
@@ -48,15 +54,24 @@ export default ({ dispatch, newEvent, types }) => {
         <strong>{titleize(caption)}</strong>
       </div>
       <div className='datepicker'>
-        <DatePicker
-          selected={displayTime}
-          onChange={editDateTime}
-          showTimeSelect
-          timeFormat={format}
-          timeIntervals={pickerInterval}
-          timeCaption={titleize(caption)}
-          dateFormat={dateFormat}
-        />
+        <div className='input'>
+          <DatePicker
+            selected={displayTime}
+            onChange={editDateTime}
+            showTimeSelect
+            timeFormat={format}
+            timeIntervals={pickerInterval}
+            timeCaption={titleize(caption)}
+            dateFormat={dateFormat}
+          />
+        </div>
+        <div className='sync'>
+          <Link
+            className='fas fa-sync'
+            to={octothorp}
+            onClick={refreshDateTime}
+          />
+        </div>
       </div>
       {newEvent.details.map((detail, index) => (
         <Detail
@@ -68,13 +83,38 @@ export default ({ dispatch, newEvent, types }) => {
         />
       ))}
       <HSeparator />
+      <AddDetail
+        details={newEvent.details}
+        onClick={addDetail}
+        types={types}
+      />
+      <HSeparator />
+      <Submit
+        dispatch={dispatch}
+        event={newEvent}
+      />
+    </div>
+  )
+}
+
+const AddDetail = (props) => {
+  const {
+    details,
+    onClick,
+    types,
+  } = props
+
+  if (details.length === types.length) {
+    return null
+  } else {
+    return(
       <Link
         to={octothorp}
-        onClick={addDetail}
+        onClick={onClick}
       >
         <i className='fas fa-plus-circle'></i>
         {titleize(shared.addDetail)}
       </Link>
-    </div>
-  )
+    )
+  }
 }

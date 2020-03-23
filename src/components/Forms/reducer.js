@@ -15,7 +15,7 @@ const initialState = {
   },
   newEvents: {
     medicationEvent: {
-      eventTime: '',
+      eventTime: new Date(),
       details: [
         {...newGenericDetail}
       ]
@@ -47,20 +47,6 @@ export default (state = initialState, action) => {
       items: action.payload,
       isFetched: true
     }
-  case "forms/medication/new/ADD_NEW_DETAIL":
-    return {
-      ...state,
-      newEvents: {
-        ...state.newEvents,
-        medicationEvent: {
-          ...state.newEvents.medicationEvent,
-          details: [
-            ...state.newEvents.medicationEvent,
-            {...newGenericDetail}
-          ]
-        }
-      }
-    }
   case "forms/medication/new/ADD_DETAIL":
     return {
       ...state,
@@ -83,6 +69,25 @@ export default (state = initialState, action) => {
           details: state.newEvents.medicationEvent.details.map((detail, index) => (
             index === action.payload.index ? { ...detail, ...action.payload.detail } : detail
           ))
+        }
+      }
+    }
+  case 'forms/medication/new/EVENT_CREATE':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        medicationEvent: {...initialState.newEvents.medicationEvent},
+      }
+    }
+  case "forms/medication/new/REMOVE_DETAIL":
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        medicationEvent: {
+          ...state.newEvents.medicationEvent,
+          details: state.newEvents.medicationEvent.details.filter((detail, index) => index !== action.payload.index)
         }
       }
     }

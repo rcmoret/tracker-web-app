@@ -30,12 +30,19 @@ h1 {
 .medication-event-form {
   background: #67A482; /* green */
   padding: 4%;
+  border-radius: 10px;
 }
 
 .medication-event-form .datepicker {
-  width: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
+
+.medication-event-form .datepicker .input {
+  width: 80%;
+}
 
 .medication-event-form .datepicker .react-datepicker-wrapper {
   width: 100%;
@@ -47,6 +54,16 @@ h1 {
 
 .medication-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
   width: 100%;
+}
+
+.medication-form-detail .type-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.medication-form-detail .type-select .select-box {
+  width: 90%;
+
 }
 
 .medication-form-detail .quantity {
