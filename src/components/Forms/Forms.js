@@ -10,7 +10,7 @@ import { getItems } from './graphQueries'
 import { formItemsFetched } from './actions'
 
 import MealEvent from './MealEvent'
-import MedicationEvent from './MedicationEvent'
+import MedicationEvent from './Medication/Event'
 import SupplementEvent from './SupplementEvent'
 
 const Body = (props) => {

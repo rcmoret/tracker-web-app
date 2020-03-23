@@ -68,7 +68,10 @@ export default (state = initialState, action) => {
         ...state.newEvents,
         medicationEvent: {
           ...state.newEvents.medicationEvent,
-          ...action.payload
+          ...action.payload.event,
+          details: state.newEvents.medicationEvent.details.map((detail, index) => (
+            index === action.payload.index ? { ...detail, ...action.payload.detail } : detail
+          ))
         }
       }
     }
