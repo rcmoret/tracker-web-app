@@ -7,7 +7,7 @@ import Body from "./components/Body"
 
 import formsReducer from "./components/Forms/reducer"
 
-import { terms, title } from "./locales/copy"
+import { terms } from "./locales/copy"
 import { titleize } from "./locales/functions"
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
