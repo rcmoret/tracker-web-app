@@ -1,6 +1,7 @@
 import { admin as adminContent } from "./en/admin"
 import { overrides } from "./overrides/copy"
-import { problem as problemContent } from "./en/problem"
+import { medication as medicationContent } from "./en/medication"
+import { shared as sharedContent } from "./en/shared"
 import { terms as termsContent } from "./terms"
 import { title as titleContent } from "./en/title"
 
@@ -9,12 +10,17 @@ export const admin = {
   ...overrides.admin,
 }
 
-export const problem = {
-  ...problemContent,
-  ...overrides.problem,
+export const medication = {
+  ...medicationContent,
+  ...overrides.medication,
 }
 
 export const terms = termsContent
+
+export const shared = {
+  ...sharedContent,
+  ...overrides.shared,
+}
 
 export const title = {
   ...titleContent,
