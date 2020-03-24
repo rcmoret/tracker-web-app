@@ -4,9 +4,9 @@ import DatePicker from 'react-datepicker'
 import { Link } from 'react-router-dom'
 import HSeparator from '../../shared/HSeparator'
 
-import { addNewMedicationEventDetail, editNewMedicationEvent } from '../actions'
+import { addNewSupplementEventDetail, editNewSupplementEvent } from '../actions'
 import { titleize } from '../../../locales/functions'
-import { shared, medication as copy } from '../../../locales/copy'
+import { shared, supplement as copy } from '../../../locales/copy'
 import { config } from '../../../locales/config'
 
 import Detail from './Detail'
@@ -32,23 +32,23 @@ const {
 
 export default ({ dispatch, newEvent, types }) => {
   const editDateTime = datetime => {
-    const action = editNewMedicationEvent({ event: { eventTime: datetime  } })
+    const action = editNewSupplementEvent({ event: { eventTime: datetime  } })
     dispatch(action)
   }
 
   const refreshDateTime = () => {
-    const action = editNewMedicationEvent({ event: { eventTime: new Date() } })
+    const action = editNewSupplementEvent({ event: { eventTime: new Date() } })
     dispatch(action)
   }
 
   const displayTime = newEvent.eventTime === '' ? new Date() : newEvent.eventTime
 
   const addDetail = () => {
-    dispatch(addNewMedicationEventDetail())
+    dispatch(addNewSupplementEventDetail())
   }
 
   return(
-    <div className='medication-event-form mg-bottom'>
+    <div className='supplement-event-form'>
       <h2>{titleize(event)}</h2>
       <div className='mg-bottom'>
         <strong>{titleize(caption)}</strong>

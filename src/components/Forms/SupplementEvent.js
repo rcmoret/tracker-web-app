@@ -4,7 +4,7 @@ import { sortBy } from '../../functions/sortBy'
 
 export default ({ types }) => {
   return(
-    <div className='supplement-event-form'>
+    <div className='supplement-event-form mg-bottom'>
       <h3>Supplements</h3>
       <ul>
           {types.slice(0).sort(sortBy('name')).map(type => (

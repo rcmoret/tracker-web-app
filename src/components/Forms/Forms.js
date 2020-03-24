@@ -11,14 +11,15 @@ import { formItemsFetched } from './actions'
 
 import MealEvent from './MealEvent'
 import MedicationEvent from './Medication/Event'
-import SupplementEvent from './SupplementEvent'
+import SupplementEvent from './Supplement/Event'
 
 const Body = (props) => {
   const {
     dispatch,
     isFetched,
     items,
-    medicationEvent
+    medicationEvent,
+    supplementEvent,
   } = props
 
   if (!isFetched) {
@@ -33,7 +34,11 @@ const Body = (props) => {
         newEvent={medicationEvent}
         types={items.medicationTypes}
       />
-      <SupplementEvent types={items.supplementTypes} />
+      <SupplementEvent
+        dispatch={dispatch}
+        newEvent={supplementEvent}
+        types={items.supplementTypes}
+      />
       <MealEvent types={items.victualTypes} items={items.victualItems} />
     </div>
   )
@@ -44,6 +49,7 @@ const Body = (props) => {
 const mapStateToProps = (state) => {
   const {
     medicationEvent,
+    supplementEvent,
   } = state.forms.newEvents
 
   const {
@@ -54,7 +60,8 @@ const mapStateToProps = (state) => {
   return {
     isFetched: isFetched,
     items:  items,
-    medicationEvent: medicationEvent
+    medicationEvent: medicationEvent,
+    supplementEvent: supplementEvent,
   }
 }
 export default connect(mapStateToProps)(Body);

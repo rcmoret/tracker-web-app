@@ -71,6 +71,50 @@ h1 {
   justify-content: space-between;
 }
 
+.supplement-event-form {
+  background: #67A482; /* green */
+  padding: 4%;
+  border-radius: 10px;
+}
+
+.supplement-event-form .datepicker {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.supplement-event-form .datepicker .input {
+  width: 80%;
+}
+
+.supplement-event-form .datepicker .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.supplement-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
+  width: 100%;
+}
+
+.supplement-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
+  width: 100%;
+}
+
+.supplement-form-detail .type-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.supplement-form-detail .type-select .select-box {
+  width: 90%;
+
+}
+
+.supplement-form-detail .quantity {
+  display: flex;
+  justify-content: space-between;
+}
+
 hr.horizontal-separator {
   border-top: 1px solid #8c8b8b;
 }

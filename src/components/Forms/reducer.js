@@ -21,7 +21,7 @@ const initialState = {
       ]
     },
     supplementEvent: {
-      eventTime: '',
+      eventTime: new Date(),
       details: [
         {...newGenericDetail}
       ]
@@ -91,20 +91,50 @@ export default (state = initialState, action) => {
         }
       }
     }
-  case "form/supplement/new/ADD_NEW_DETAIL":
-      return {
-        ...state,
-        forms: {
-          ...state.forms,
-          supplementEvent: {
-            ...state.forms.supplementEvent,
-            details: [
-              ...state.forms.supplementEvent,
-              {...newGenericDetail}
-            ]
-          }
+  case "forms/supplement/new/ADD_DETAIL":
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        supplementEvent: {
+          ...state.newEvents.supplementEvent,
+          details: [...state.newEvents.supplementEvent.details, {...newGenericDetail}]
         }
       }
+    }
+  case "forms/supplement/new/EDIT_EVENT":
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        supplementEvent: {
+          ...state.newEvents.supplementEvent,
+          ...action.payload.event,
+          details: state.newEvents.supplementEvent.details.map((detail, index) => (
+            index === action.payload.index ? { ...detail, ...action.payload.detail } : detail
+          ))
+        }
+      }
+    }
+  case 'forms/supplement/new/EVENT_CREATE':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        supplementEvent: {...initialState.newEvents.supplementEvent},
+      }
+    }
+  case "forms/supplement/new/REMOVE_DETAIL":
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        supplementEvent: {
+          ...state.newEvents.supplementEvent,
+          details: state.newEvents.supplementEvent.details.filter((detail, index) => index !== action.payload.index)
+        }
+      }
+    }
     default:
       return state
   }
