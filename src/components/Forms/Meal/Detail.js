@@ -1,20 +1,23 @@
 import React from 'react'
 import Select from 'react-select'
 
-import { editNewSupplementEvent, removeNewSupplementEventDetail } from '../actions'
+import { editNewMealEvent, removeNewMealEventDetail } from '../actions'
 import { Link } from 'react-router-dom'
 import { titleize } from '../../../locales/functions'
 import { sortBy } from '../../../functions/sortBy'
-import HSeparator from '../../shared/HSeparator'
 
-import { shared, supplement as copy } from '../../../locales/copy'
+import HSeparator from '../../shared/HSeparator'
+import UnitSelect from './UnitSelect'
+
+import { shared, meal as copy } from '../../../locales/copy'
 
 export default (props) => {
   const {
     index,
     detail,
     dispatch,
-    types,
+    items,
+    units,
   } = props
 
   const { typePlaceholder } = copy
@@ -23,19 +26,19 @@ export default (props) => {
     quantity,
   } = shared
 
-  const options = types.map(type => (
-      { value: type.id, label: titleize(type.name), unit: type.unit }
+  const options = items.map(item => (
+      { value: item.id, label: titleize(item.name) }
   )).sort(sortBy('label'))
 
-  const value = options.find(option => option.value === detail.typeId)
+  const value = options.find(option => option.value === detail.itemId)
 
   const onChange = tuple => {
-    const action = editNewSupplementEvent({ index: index, detail: tuple })
+    const action = editNewMealEvent({ index: index, detail: tuple })
     dispatch(action)
   }
 
-  const onTypeChange = ({ value }) => {
-    onChange({ typeId: value })
+  const onItemChange = ({ value }) => {
+    onChange({ itemId: value })
   }
 
   const onQuantityChange = (e) => {
@@ -43,20 +46,18 @@ export default (props) => {
   }
 
   const removeDetail = () => {
-    const action = removeNewSupplementEventDetail({ index: index })
+    const action = removeNewMealEventDetail({ index: index })
     dispatch(action)
   }
 
-  const unit = { unit: { displayName: '' }, ...value }.unit.displayName
-
   return (
-    <div className='supplement-form-detail'>
+    <div className='meal-form-detail'>
       <HSeparator />
-      <div className='type-select mg-bottom'>
+      <div className='item-select mg-bottom'>
         <div className='select-box'>
           <Select
             isSearchable={true}
-            onChange={onTypeChange}
+            onChange={onItemChange}
             options={options}
             placeholder={typePlaceholder}
             value={value}
@@ -71,16 +72,21 @@ export default (props) => {
         </div>
       </div>
       <div className={quantity}>
-        <span className='input'>
+        <div className='input'>
           <input
             value={detail.quantity}
             onChange={onQuantityChange}
             placeholder={quantity}
+            size='12'
           />
-        </span>
-        <span className='unit'>
-          {unit}
-        </span>
+        </div>
+        <div className='unit'>
+          <UnitSelect
+            detail={detail}
+            onChange={onChange}
+            units={units}
+          />
+        </div>
       </div>
     </div>
   )

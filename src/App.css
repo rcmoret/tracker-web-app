@@ -27,6 +27,61 @@ h1 {
   margin-bottom: 10px;
 }
 
+.quantity input {
+  text-align: right;
+}
+
+.meal-event-form {
+  background: #67A482; /* green */
+  padding: 4%;
+  border-radius: 10px;
+}
+
+.meal-event-form .datepicker {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.meal-event-form .datepicker .input {
+  width: 80%;
+}
+
+.meal-event-form .datepicker .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.meal-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
+  width: 100%;
+}
+
+.meal-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
+  width: 100%;
+}
+
+.meal-form-detail .item-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.meal-form-detail .item-select .select-box {
+  width: 90%;
+
+}
+
+.meal-form-detail .quantity {
+  display: flex;
+  justify-content: space-between;
+}
+
+.meal-form-detail .quantity .input {
+  width: 30%;
+}
+
+.meal-form-detail .quantity .unit {
+  width: 65%
+}
+
 .medication-event-form {
   background: #67A482; /* green */
   padding: 4%;

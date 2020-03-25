@@ -5,6 +5,10 @@ export const getItems = (onSuccess) => {
   client.query({
     query: gql(`
       {
+        mealTypes {
+          id
+          name
+        }
         medicationTypes {
           id
           name
@@ -40,6 +44,7 @@ export const getItems = (onSuccess) => {
           description
         }
         units {
+          id
           displayName
           name
         }

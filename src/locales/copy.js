@@ -1,5 +1,6 @@
 import { admin as adminContent } from "./en/admin"
 import { overrides } from "./overrides/copy"
+import { meal as mealContent } from "./en/meal"
 import { medication as medicationContent } from "./en/medication"
 import { supplement as supplementContent } from "./en/supplement"
 import { shared as sharedContent } from "./en/shared"
@@ -9,6 +10,11 @@ import { title as titleContent } from "./en/title"
 export const admin = {
   ...adminContent,
   ...overrides.admin,
+}
+
+export const meal = {
+  ...mealContent,
+  ...overrides.meal,
 }
 
 export const medication = {

@@ -1,11 +1,18 @@
 const newGenericDetail = {
   typeId: '',
-  quantity: ''
+  quantity: '',
+}
+
+const newVictualDetail = {
+  itemId: '',
+  quantity: '',
+  unitId: '',
 }
 
 const initialState = {
   isFetched: false,
   items: {
+    mealTypes: [],
     medicationTypes: [],
     supplementTypes: [],
     victualItems: [],
@@ -27,8 +34,10 @@ const initialState = {
       ]
     },
     mealEvent: {
-      eventTime: '',
-      details: []
+      eventTime: new Date(),
+      details: [
+        {...newVictualDetail}
+      ]
     },
     snackEvent: {
       eventTime: '',
@@ -46,6 +55,42 @@ export default (state = initialState, action) => {
       ...state,
       items: action.payload,
       isFetched: true
+    }
+  case 'forms/meal/new/ADD_DETAIL':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        mealEvent: {
+          ...state.newEvents.mealEvent,
+          details: [...state.newEvents.mealEvent.details, {...newVictualDetail}]
+        }
+      }
+    }
+  case 'forms/meal/new/EDIT_EVENT':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        mealEvent: {
+          ...state.newEvents.mealEvent,
+          ...action.payload.event,
+          details: state.newEvents.mealEvent.details.map((detail, index) => (
+            index === action.payload.index ? { ...detail, ...action.payload.detail } : detail
+          ))
+        }
+      }
+    }
+  case 'forms/meal/new/REMOVE_DETAIL':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        mealEvent: {
+          ...state.newEvents.mealEvent,
+          details: state.newEvents.mealEvent.details.filter((detail, index) => index !== action.payload.index)
+        }
+      }
     }
   case "forms/medication/new/ADD_DETAIL":
     return {

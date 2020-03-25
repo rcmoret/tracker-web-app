@@ -52,7 +52,7 @@ export default (props) => {
   return (
     <div className='medication-form-detail'>
       <HSeparator />
-      <div className='type-select'>
+      <div className='type-select mg-bottom'>
         <div className='select-box'>
           <Select
             isSearchable={true}

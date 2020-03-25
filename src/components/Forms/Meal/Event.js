@@ -2,11 +2,13 @@ import React from 'react'
 
 import DatePicker from 'react-datepicker'
 import { Link } from 'react-router-dom'
-import HSeparator from '../../shared/HSeparator'
 
-import { addNewSupplementEventDetail, editNewSupplementEvent } from '../actions'
+import HSeparator from '../../shared/HSeparator'
+import MealTypeSelect from './TypeSelect'
+
+import { addNewMealEventDetail, editNewMealEvent } from '../actions'
 import { titleize } from '../../../locales/functions'
-import { shared, supplement as copy } from '../../../locales/copy'
+import { shared, meal as copy } from '../../../locales/copy'
 import { config } from '../../../locales/config'
 
 import Detail from './Detail'
@@ -30,33 +32,31 @@ const {
   pickerInterval,
 } = config.time
 
-export default ({ dispatch, newEvent, types }) => {
+export default ({ dispatch, items, newEvent, types, units }) => {
   const editDateTime = datetime => {
-    const action = editNewSupplementEvent({ event: { eventTime: datetime  } })
+    const action = editNewMealEvent({ event: { eventTime: datetime  } })
     dispatch(action)
   }
 
   const refreshDateTime = () => {
-    const action = editNewSupplementEvent({ event: { eventTime: new Date() } })
+    const action = editNewMealEvent({ event: { eventTime: new Date() } })
     dispatch(action)
   }
 
-  const displayTime = newEvent.eventTime === '' ? new Date() : newEvent.eventTime
-
   const addDetail = () => {
-    dispatch(addNewSupplementEventDetail())
+    dispatch(addNewMealEventDetail())
   }
 
   return(
-    <div className='supplement-event-form mg-bottom'>
+    <div className='meal-event-form mg-bottom'>
       <h2>{titleize(event)}</h2>
       <div className='mg-bottom'>
         <strong>{titleize(caption)}</strong>
       </div>
-      <div className='datepicker'>
+      <div className='datepicker mg-bottom'>
         <div className='input'>
           <DatePicker
-            selected={displayTime}
+            selected={newEvent.eventTime}
             onChange={editDateTime}
             showTimeSelect
             timeFormat={format}
@@ -73,20 +73,26 @@ export default ({ dispatch, newEvent, types }) => {
           />
         </div>
       </div>
+      <MealTypeSelect
+        dispatch={dispatch}
+        event={newEvent}
+        types={types}
+      />
       {newEvent.details.map((detail, index) => (
         <Detail
           key={index}
           index={index}
           detail={detail}
           dispatch={dispatch}
-          types={types}
+          items={items}
+          units={units}
         />
       ))}
       <HSeparator />
       <AddDetail
         details={newEvent.details}
         onClick={addDetail}
-        types={types}
+        items={items}
       />
       <HSeparator />
       <Submit
@@ -101,10 +107,10 @@ const AddDetail = (props) => {
   const {
     details,
     onClick,
-    types,
+    items,
   } = props
 
-  if (details.length === types.length) {
+  if (details.length === items.length) {
     return null
   } else {
     return(

@@ -2,6 +2,22 @@ export const formItemsFetched = (payload) => (
   { type: "forms/items/FETCHED", payload: payload.data }
 )
 
+export const addNewMealEventDetail = () => (
+  { type: 'forms/meal/new/ADD_DETAIL', payload: null }
+)
+
+export const editNewMealEvent = (payload) => (
+  { type: 'forms/meal/new/EDIT_EVENT', payload: payload }
+)
+
+export const newMealEventCreate = (payload) => (
+  { type: 'forms/meal/new/EVENT_CREATE', payload: payload }
+)
+
+export const removeNewMealEventDetail = (payload) => (
+  { type: 'forms/meal/new/REMOVE_DETAIL', payload: payload }
+)
+
 export const addNewMedicationEventDetail = () => (
   { type: 'forms/medication/new/ADD_DETAIL', payload: null }
 )

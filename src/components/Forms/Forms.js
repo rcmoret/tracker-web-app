@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { getItems } from './graphQueries'
 import { formItemsFetched } from './actions'
 
-import MealEvent from './MealEvent'
+import MealEvent from './Meal/Event'
 import MedicationEvent from './Medication/Event'
 import SupplementEvent from './Supplement/Event'
 
@@ -18,6 +18,7 @@ const Body = (props) => {
     dispatch,
     isFetched,
     items,
+    mealEvent,
     medicationEvent,
     supplementEvent,
   } = props
@@ -39,7 +40,13 @@ const Body = (props) => {
         newEvent={supplementEvent}
         types={items.supplementTypes}
       />
-      <MealEvent types={items.victualTypes} items={items.victualItems} />
+      <MealEvent
+        dispatch={dispatch}
+        newEvent={mealEvent}
+        items={items.victualItems}
+        types={items.mealTypes}
+        units={items.units}
+      />
     </div>
   )
 }
@@ -48,6 +55,7 @@ const Body = (props) => {
 
 const mapStateToProps = (state) => {
   const {
+    mealEvent,
     medicationEvent,
     supplementEvent,
   } = state.forms.newEvents
@@ -60,6 +68,7 @@ const mapStateToProps = (state) => {
   return {
     isFetched: isFetched,
     items:  items,
+    mealEvent: mealEvent,
     medicationEvent: medicationEvent,
     supplementEvent: supplementEvent,
   }
