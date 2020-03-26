@@ -1,8 +1,3 @@
-// now - 11 budget
-// 11-12 clean the house
-// 12:30-1 food and interview followup
-// 1:00 - 1:30 budget app updates
-
 import React from 'react'
 import { connect } from 'react-redux'
 
