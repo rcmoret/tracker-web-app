@@ -40,10 +40,8 @@ const initialState = {
       ]
     },
     snackEvent: {
-      eventTime: '',
-      victualItemId: '',
-      unitId: '',
-      quantity: ''
+      eventTime: new Date(),
+      ...newVictualDetail,
     }
   }
 }
@@ -79,6 +77,14 @@ export default (state = initialState, action) => {
             index === action.payload.index ? { ...detail, ...action.payload.detail } : detail
           ))
         }
+      }
+    }
+  case 'forms/meal/new/EVENT_CREATE':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        mealEvent: {...initialState.newEvents.mealEvent}
       }
     }
   case 'forms/meal/new/REMOVE_DETAIL':
@@ -134,6 +140,25 @@ export default (state = initialState, action) => {
           ...state.newEvents.medicationEvent,
           details: state.newEvents.medicationEvent.details.filter((detail, index) => index !== action.payload.index)
         }
+      }
+    }
+  case 'forms/snack/new/EDIT_EVENT':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        snackEvent: {
+          ...state.newEvents.snackEvent,
+          ...action.payload,
+        }
+      }
+    }
+  case 'forms/snack/new/EVENT_CREATE':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        snackEvent: {...initialState.newEvents.snackEvent}
       }
     }
   case "forms/supplement/new/ADD_DETAIL":

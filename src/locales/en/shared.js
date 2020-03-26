@@ -5,5 +5,6 @@ export const shared = {
   time: {
     caption: 'time',
     format: 'HH:mm',
-  }
+  },
+  submitText: 'submit',
 }

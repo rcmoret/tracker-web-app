@@ -11,6 +11,7 @@ import { formItemsFetched } from './actions'
 
 import MealEvent from './Meal/Event'
 import MedicationEvent from './Medication/Event'
+import SnackEvent from './Snack/Event'
 import SupplementEvent from './Supplement/Event'
 
 const Body = (props) => {
@@ -20,6 +21,7 @@ const Body = (props) => {
     items,
     mealEvent,
     medicationEvent,
+    snackEvent,
     supplementEvent,
   } = props
 
@@ -47,6 +49,12 @@ const Body = (props) => {
         types={items.mealTypes}
         units={items.units}
       />
+      <SnackEvent
+        dispatch={dispatch}
+        newEvent={snackEvent}
+        items={items.victualItems}
+        units={items.units}
+      />
     </div>
   )
 }
@@ -57,6 +65,7 @@ const mapStateToProps = (state) => {
   const {
     mealEvent,
     medicationEvent,
+    snackEvent,
     supplementEvent,
   } = state.forms.newEvents
 
@@ -70,6 +79,7 @@ const mapStateToProps = (state) => {
     items:  items,
     mealEvent: mealEvent,
     medicationEvent: medicationEvent,
+    snackEvent: snackEvent,
     supplementEvent: supplementEvent,
   }
 }

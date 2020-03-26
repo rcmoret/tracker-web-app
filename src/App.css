@@ -69,16 +69,19 @@ h1 {
 
 }
 
-.meal-form-detail .quantity {
+.meal-form-detail .quantity,
+.snack-form-detail .quantity {
   display: flex;
   justify-content: space-between;
 }
 
-.meal-form-detail .quantity .input {
+.meal-form-detail .quantity .input,
+.snack-form-detail .quantity .input {
   width: 30%;
 }
 
-.meal-form-detail .quantity .unit {
+.meal-form-detail .quantity .unit,
+.snack-form-detail .quantity .unit {
   width: 65%
 }
 

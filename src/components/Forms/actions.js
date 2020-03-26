@@ -34,6 +34,14 @@ export const removeNewMedicationEventDetail = (payload) => (
   { type: 'forms/medication/new/REMOVE_DETAIL', payload: payload }
 )
 
+export const editNewSnackEvent = (payload) => (
+  { type: 'forms/snack/new/EDIT_EVENT', payload: payload }
+)
+
+export const newSnackEventCreate = (payload) => (
+  { type: 'forms/snack/new/EVENT_CREATE', payload: payload }
+)
+
 export const addNewSupplementEventDetail = () => (
   { type: 'forms/supplement/new/ADD_DETAIL', payload: null }
 )

@@ -4,13 +4,8 @@ import ApiUrlBuilder from '../../../functions/ApiUrlBuilder'
 import { newMealEventCreate } from '../actions'
 import { mealEventBody } from '../../../functions/jsonBody'
 import { post } from '../../../functions/RestClient'
+import { shared as copy } from '../../../locales/copy'
 import { titleize } from '../../../locales/functions'
-
-const copy = {
-  shared: {
-    submitText: 'submit',
-  }
-}
 
 export default ({ dispatch, event }) => {
   const onSubmit = () => {
@@ -24,8 +19,8 @@ export default ({ dispatch, event }) => {
   }
 
   return(
-    <button type='submit' onClick={onSubmit}>
-      {titleize(copy.shared.submitText)}
+    <button type={copy.submitText} onClick={onSubmit}>
+      {titleize(copy.submitText)}
     </button>
   )
 }

@@ -16,9 +16,7 @@ export default (props) => {
 
   const value = options.find(option => option.value === detail.unitId)
 
-  const onSelect = option => {
-    onChange({ unitId: option.value })
-  }
+  const onSelect = option => onChange({ unitId: option.value })
 
   return(
     <Select
