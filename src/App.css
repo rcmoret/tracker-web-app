@@ -31,31 +31,31 @@ h1 {
   text-align: right;
 }
 
-.meal-event-form {
+.event-form {
   background: #67A482; /* green */
   padding: 4%;
   border-radius: 10px;
 }
 
-.meal-event-form .datepicker {
+.event-form .datepicker {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.meal-event-form .datepicker .input {
+.event-form .datepicker .input {
   width: 80%;
 }
 
-.meal-event-form .datepicker .react-datepicker-wrapper {
+.event-form .datepicker .react-datepicker-wrapper {
   width: 100%;
 }
 
-.meal-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
+.event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
   width: 100%;
 }
 
-.meal-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
+.event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
   width: 100%;
 }
 
@@ -121,7 +121,6 @@ h1 {
 
 .medication-form-detail .type-select .select-box {
   width: 90%;
-
 }
 
 .medication-form-detail .quantity {
@@ -192,85 +191,4 @@ a, a:visited {
   width: 60%;
   display: inline-block;
   vertical-align: top;
-}
-
-.problem {
-  background: #E1F88C; /* yellow */
-  width: 100%;
-  padding: 5% 2%;
-  border-radius: 15px;
-}
-
-.x-value, .y-value, .symbol, .equal-sign, .answer {
-  display: inline-block;
-  margin-right: 1%;
-}
-
-.message.failure {
-  background: #CC6D59; /* red */
-  color: #2D5BB5; /* blue */
-}
-
-.message.success {
-  background: #67A482; /* green */
-  color: #E1F88C; /* yellow */
-}
-
-.message {
-  width: 100%;
-  padding: 0.4% 2%;
-  border-radius: 15px;
-  margin-bottom: 10px;
-}
-
-.info {
-  color: #E1F88C;
-  background: #2D5BB5;
-  width: 100%;
-  padding: 4% 2%;
-  border-radius: 15px;
-  margin-top: 10px;
-}
-
-.meme {
-  margin-left: 5%;
-  padding: 10px;
-  background: #E1F88C;
-  border-radius: 25px;
-}
-
-.admin-form input.url {
-  width: 100%;
-}
-
-.dimensions {
-  display: flex;
-}
-
-.dimensions .label, .dimensions .input {
-}
-
-.dimensions .label {
-  width: 20%;
-}
-
-.dimensions .input {
-  width: 20%;
-  margin-left: 2%;
-}
-
-.dimensions .input input {
-  width: 80%;
-}
-
-.success-radio {
-  display: flex;
-}
-
-.success-radio .label {
-  width: 30%;
-}
-
-.success-radio .input {
-  width: 20%;
 }
