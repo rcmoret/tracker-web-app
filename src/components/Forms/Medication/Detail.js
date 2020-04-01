@@ -52,7 +52,7 @@ export default (props) => {
   const unit = { unit: { displayName: '' }, ...value }.unit.displayName
 
   return (
-    <div className='medication-form-detail'>
+    <div className='form-detail'>
       <HSeparator />
       <div className='type-select mg-bottom'>
         <div className='select-box'>

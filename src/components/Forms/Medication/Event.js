@@ -48,7 +48,7 @@ export default ({ dispatch, newEvent, types }) => {
   }
 
   return(
-    <div className='medication-event-form mg-bottom'>
+    <div className='event-form mg-bottom'>
       <h2>{titleize(event)}</h2>
       <div className='mg-bottom'>
         <strong>{titleize(caption)}</strong>

@@ -79,7 +79,7 @@ export default ({ dispatch, items, newEvent, units }) => {
   }
 
   return(
-    <div className='medication-event-form mg-bottom'>
+    <div className='event-form mg-bottom'>
       <h2>{titleize(event)}</h2>
       <div className='datepicker'>
         <div className='input'>
@@ -101,7 +101,7 @@ export default ({ dispatch, items, newEvent, units }) => {
           />
         </div>
       </div>
-      <div className='snack-form-detail'>
+      <div className='form-detail'>
         <HSeparator />
         <div className='item-select mg-bottom'>
           <div className='select-box'>
@@ -122,7 +122,7 @@ export default ({ dispatch, items, newEvent, units }) => {
               size={inputSize}
             />
           </div>
-          <div className='unit'>
+          <div className='unit-select'>
             <UnitSelect
               onChange={onChange}
               unitId={unitId}

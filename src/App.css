@@ -59,117 +59,48 @@ h1 {
   width: 100%;
 }
 
-.meal-form-detail .item-select {
+.event-form textarea {
+  width: 90%;
+  margin: auto;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-detail .item-select {
   display: flex;
   justify-content: space-between;
 }
 
-.meal-form-detail .item-select .select-box {
+.form-detail .item-select .select-box {
   width: 90%;
 
 }
 
-.meal-form-detail .quantity,
-.snack-form-detail .quantity {
+.form-detail .quantity,
+.form-detail .rating {
   display: flex;
   justify-content: space-between;
 }
 
-.meal-form-detail .quantity .input,
-.snack-form-detail .quantity .input {
+.form-detail .quantity .input {
   width: 30%;
 }
 
-.meal-form-detail .quantity .unit,
-.snack-form-detail .quantity .unit {
+.form-detail .quantity .unit-select {
   width: 65%
 }
 
-.medication-event-form {
-  background: #67A482; /* green */
-  padding: 4%;
-  border-radius: 10px;
-}
-
-.medication-event-form .datepicker {
-  width: 100%;
+.form-detail .type-select {
   display: flex;
   justify-content: space-between;
 }
 
-
-.medication-event-form .datepicker .input {
-  width: 80%;
-}
-
-.medication-event-form .datepicker .react-datepicker-wrapper {
-  width: 100%;
-}
-
-.medication-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
-  width: 100%;
-}
-
-.medication-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
-  width: 100%;
-}
-
-.medication-form-detail .type-select {
-  display: flex;
-  justify-content: space-between;
-}
-
-.medication-form-detail .type-select .select-box {
+.form-detail .type-select .select-box {
   width: 90%;
 }
 
-.medication-form-detail .quantity {
-  display: flex;
-  justify-content: space-between;
-}
-
-.supplement-event-form {
-  background: #67A482; /* green */
-  padding: 4%;
-  border-radius: 10px;
-}
-
-.supplement-event-form .datepicker {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.supplement-event-form .datepicker .input {
-  width: 80%;
-}
-
-.supplement-event-form .datepicker .react-datepicker-wrapper {
-  width: 100%;
-}
-
-.supplement-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container {
-  width: 100%;
-}
-
-.supplement-event-form .datepicker .react-datepicker-wrapper .react-datepicker__input-container input {
-  width: 100%;
-}
-
-.supplement-form-detail .type-select {
-  display: flex;
-  justify-content: space-between;
-}
-
-.supplement-form-detail .type-select .select-box {
-  width: 90%;
-
-}
-
-.supplement-form-detail .quantity {
-  display: flex;
-  justify-content: space-between;
+.form-detail .rating .detail-select {
+  width: 70%;
 }
 
 hr.horizontal-separator {

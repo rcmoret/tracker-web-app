@@ -51,7 +51,7 @@ export default (props) => {
   }
 
   return (
-    <div className='meal-form-detail'>
+    <div className='form-detail'>
       <HSeparator />
       <div className='item-select mg-bottom'>
         <div className='select-box'>
@@ -80,7 +80,7 @@ export default (props) => {
             size='12'
           />
         </div>
-        <div className='unit'>
+        <div className='unit-select'>
           <UnitSelect
             detail={detail}
             onChange={onChange}
