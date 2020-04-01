@@ -4,6 +4,7 @@ import { Provider } from "react-redux"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 import Body from "./components/Body"
+import Forms from './components/Forms/Forms'
 
 import formsReducer from "./components/Forms/reducer"
 
@@ -26,9 +27,11 @@ export default () => {
         <Router>
           <header className="App-header">
             <h1>{titleize(terms.appName)}</h1>
-            <Switch>
-              <Route exact path="/" component={Body} />
-            </Switch>
+              <Switch>
+                <Route exact path="/" component={Body} />
+                <Route exact path="/forms/select" component={FormSelect} />
+                <Route path="/forms/:formType" component={Forms} />
+              </Switch>
           </header>
         </Router>
       </Provider>

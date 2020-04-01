@@ -13,6 +13,7 @@ import SupplementEvent from './Supplement/Event'
 const Body = (props) => {
   const {
     dispatch,
+    formType,
     isFetched,
     items,
     logEvent,
@@ -27,43 +28,70 @@ const Body = (props) => {
     getItems(onSuccess)
   }
 
+  const FormElementFinder = () => {
+    switch (formType) {
+    case 'log':
+      return (
+        <LogEvent
+          dispatch={dispatch}
+          newEvent={logEvent}
+          types={items.logDetailTypes}
+        />
+      )
+    case 'meal':
+      return (
+        <MealEvent
+          dispatch={dispatch}
+          newEvent={mealEvent}
+          items={items.victualItems}
+          types={items.mealTypes}
+          units={items.units}
+        />
+      )
+    case 'medication':
+      return (
+        <MedicationEvent
+          dispatch={dispatch}
+          newEvent={medicationEvent}
+          types={items.medicationTypes}
+        />
+      )
+    case 'snack':
+      return (
+        <SnackEvent
+          dispatch={dispatch}
+          newEvent={snackEvent}
+          items={items.victualItems}
+          units={items.units}
+        />
+      )
+    case 'supplement':
+      return (
+        <SupplementEvent
+          dispatch={dispatch}
+          newEvent={supplementEvent}
+          types={items.supplementTypes}
+        />
+      )
+    default:
+      return null
+    }
+  }
+
+  const FormElement = FormElementFinder()
+
   return (
     <div>
-      <MedicationEvent
-        dispatch={dispatch}
-        newEvent={medicationEvent}
-        types={items.medicationTypes}
-      />
-      <SupplementEvent
-        dispatch={dispatch}
-        newEvent={supplementEvent}
-        types={items.supplementTypes}
-      />
-      <MealEvent
-        dispatch={dispatch}
-        newEvent={mealEvent}
-        items={items.victualItems}
-        types={items.mealTypes}
-        units={items.units}
-      />
-      <SnackEvent
-        dispatch={dispatch}
-        newEvent={snackEvent}
-        items={items.victualItems}
-        units={items.units}
-      />
-      <LogEvent
-        dispatch={dispatch}
-        newEvent={logEvent}
-        types={items.logDetailTypes}
-      />
+      <div className='left'>
+        <div>
+          {FormElement}
+        </div>
+      </div>
     </div>
   )
 }
 
-// const FormSelector =
-
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   const {
     logEvent,
     mealEvent,
@@ -77,7 +105,10 @@ const mapStateToProps = (state) => {
     items,
   } = state.forms
 
+  const { formType } = ownProps.match.params
+
   return {
+    formType: formType,
     isFetched: isFetched,
     items:  items,
     logEvent: logEvent,
