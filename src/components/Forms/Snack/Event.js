@@ -80,7 +80,7 @@ export default ({ dispatch, items, newEvent, units }) => {
   }
 
   return(
-    <div className='event-form mg-bottom'>
+    <div className='event-form bg-green mg-bottom'>
       <h2>{titleize(event)}</h2>
       <div className='datepicker'>
         <div className='input'>

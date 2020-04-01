@@ -74,7 +74,7 @@ export default (props) => {
   }
 
   return(
-    <div className='event-form mg-bottom'>
+    <div className='event-form bg-green mg-bottom'>
       <h2>{titleize(event)}</h2>
       <div className='mg-bottom'>
         <strong>{titleize(caption)}</strong>

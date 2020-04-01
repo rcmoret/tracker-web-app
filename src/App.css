@@ -23,16 +23,31 @@ h1 {
   color: white;
 }
 
+.bg-green {
+  background: #67A482;
+}
+
 .mg-bottom {
   margin-bottom: 10px;
+}
+
+.mg-top {
+  margin-top: 10px;
 }
 
 .quantity input {
   text-align: right;
 }
 
+.padded {
+  padding: 4%;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
 .event-form {
-  background: #67A482; /* green */
   padding: 4%;
   border-radius: 10px;
 }

@@ -19,7 +19,7 @@ export default ({ dispatch, event, types }) => {
   }
 
   return (
-    <div className='meal-event-form-type-select mg-bottom'>
+    <div className='meal-event-form bg-green-type-select mg-bottom'>
       <Select
         onChange={onChange}
         options={options}
