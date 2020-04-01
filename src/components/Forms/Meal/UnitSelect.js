@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
+import findOrDefault from '../../../functions/findOrDefault'
 import { sortBy } from '../../../functions/sortBy'
 
 export default (props) => {
@@ -14,7 +15,7 @@ export default (props) => {
     { label: unit.name, value: unit.id }
   )).sort(sortBy('label'))
 
-  const value = options.find(option => option.value === detail.unitId)
+  const value = findOrDefault(options, option => option.value === detail.unitId, null)
 
   const onSelect = option => onChange({ unitId: option.value })
 

@@ -5,6 +5,7 @@ import { editNewMedicationEvent, removeNewMedicationEventDetail } from '../actio
 import { Link } from 'react-router-dom'
 import { titleize } from '../../../locales/functions'
 import { sortBy } from '../../../functions/sortBy'
+import findOrDefault from '../../../functions/findOrDefault'
 import HSeparator from '../../shared/HSeparator'
 
 import { shared, medication as copy } from '../../../locales/copy'
@@ -23,13 +24,11 @@ export default (props) => {
     quantity,
   } = shared
 
-  const typeOptions = types.map(type => (
+  const options = types.map(type => (
       { value: type.id, label: titleize(type.name), unit: type.unit }
-  ))
+  )).sort(sortBy('label'))
 
-  const options = [{ value: null, label: ''}, ...typeOptions].sort(sortBy('label'))
-
-  const value = options.find(option => option.value === detail.typeId)
+  const value = findOrDefault(options, option => option.value === detail.typeId, null)
 
   const onChange = tuple => {
     const action = editNewMedicationEvent({ index: index, detail: tuple })

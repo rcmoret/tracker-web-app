@@ -10,6 +10,7 @@ import {
   editNewSnackEvent,
   newSnackEventCreate,
 } from '../actions'
+import findOrDefault from '../../../functions/findOrDefault'
 import { post } from '../../../functions/RestClient'
 import { snackEventBody } from '../../../functions/jsonBody'
 import { sortBy } from '../../../functions/sortBy'
@@ -147,7 +148,7 @@ const ItemSelect = ({ items, itemId, onChange }) => {
       { label: titleize(item.name), value: item.id }
     ))
 
-  const value = options.find(option => option.value === itemId)
+  const value = findOrDefault(options, option => option.value === itemId, null)
 
   const onItemChange = option => onChange({ itemId: option.value })
 
@@ -167,7 +168,7 @@ const UnitSelect = ({ onChange, unitId, units }) => {
     { label: unit.name, value: unit.id }
   )).sort(sortBy('label'))
 
-  const value = options.find(option => option.value === unitId)
+  const value = findOrDefault(options, option => option.value === unitId, null)
 
   const onSelect = option => onChange({ unitId: option.value })
 

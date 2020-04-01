@@ -3,6 +3,7 @@ import React from 'react'
 import Select from 'react-select'
 
 import { titleize } from '../../../locales/functions'
+import findOrDefault from '../../../functions/findOrDefault'
 import { editNewMealEvent } from '../actions'
 
 export default ({ dispatch, event, types }) => {
@@ -10,7 +11,7 @@ export default ({ dispatch, event, types }) => {
     { value: type.id, label: titleize(type.name) }
   ))
 
-  const value = options.find(option => option.value === event.typeId)
+  const value = findOrDefault(options, option => option.value === event.typeId, null)
 
   const onChange = (option) => {
     const action = editNewMealEvent({ event: { typeId: option.value } })

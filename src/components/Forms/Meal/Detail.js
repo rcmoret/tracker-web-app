@@ -2,6 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 import { editNewMealEvent, removeNewMealEventDetail } from '../actions'
+import findOrDefault from '../../../functions/findOrDefault'
 import { Link } from 'react-router-dom'
 import { titleize } from '../../../locales/functions'
 import { sortBy } from '../../../functions/sortBy'
@@ -30,7 +31,7 @@ export default (props) => {
       { value: item.id, label: titleize(item.name) }
   )).sort(sortBy('label'))
 
-  const value = options.find(option => option.value === detail.itemId)
+  const value = findOrDefault(options, option => option.value === detail.itemId, null)
 
   const onChange = tuple => {
     const action = editNewMealEvent({ index: index, detail: tuple })

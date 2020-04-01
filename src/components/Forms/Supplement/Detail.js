@@ -2,6 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 import { editNewSupplementEvent, removeNewSupplementEventDetail } from '../actions'
+import findOrDefault from '../../../functions/findOrDefault'
 import { Link } from 'react-router-dom'
 import { titleize } from '../../../locales/functions'
 import { sortBy } from '../../../functions/sortBy'
@@ -27,7 +28,7 @@ export default (props) => {
       { value: type.id, label: titleize(type.name), unit: type.unit }
   )).sort(sortBy('label'))
 
-  const value = options.find(option => option.value === detail.typeId)
+  const value = findOrDefault(options, option => option.value === detail.typeId, null)
 
   const onChange = tuple => {
     const action = editNewSupplementEvent({ index: index, detail: tuple })
