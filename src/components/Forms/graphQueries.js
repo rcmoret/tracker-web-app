@@ -41,6 +41,7 @@ export const getItems = (onSuccess) => {
           name
         }
         logDetailTypes {
+          id
           description
         }
         units {

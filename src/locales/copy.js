@@ -1,4 +1,5 @@
 import { overrides } from "./overrides/copy"
+import { log as logContent } from "./en/log"
 import { meal as mealContent } from "./en/meal"
 import { medication as medicationContent } from "./en/medication"
 import { supplement as supplementContent } from "./en/supplement"
@@ -7,6 +8,9 @@ import { snack as snackContent } from "./en/snack"
 import { terms as termsContent } from "./terms"
 import { title as titleContent } from "./en/title"
 
+export const log = {
+  ...logContent,
+  ...overrides.log,
 }
 
 export const meal = {

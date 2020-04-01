@@ -2,6 +2,22 @@ export const formItemsFetched = (payload) => (
   { type: "forms/items/FETCHED", payload: payload.data }
 )
 
+export const addNewLogEventDetail = () => (
+  { type: 'forms/log/new/ADD_DETAIL', payload: null }
+)
+
+export const editNewLogEvent = (payload) => (
+  { type: 'forms/log/new/EDIT_EVENT', payload: payload }
+)
+
+export const newLogEventCreate = () => (
+  { type: 'forms/log/new/EVENT_CREATE', payload: null }
+)
+
+export const removeNewLogEventDetail = (payload) => (
+  { type: 'forms/log/new/REMOVE_DETAIL', payload: payload }
+)
+
 export const addNewMealEventDetail = () => (
   { type: 'forms/meal/new/ADD_DETAIL', payload: null }
 )

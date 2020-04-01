@@ -3,6 +3,11 @@ const newGenericDetail = {
   quantity: '',
 }
 
+const newLogDetail = {
+  rating: '',
+  typeId: '',
+}
+
 const newVictualDetail = {
   itemId: '',
   quantity: '',
@@ -33,6 +38,13 @@ const initialState = {
         {...newGenericDetail}
       ]
     },
+    logEvent: {
+      eventTime: new Date(),
+      narrative: '',
+      details: [
+        {...newLogDetail},
+      ]
+    },
     mealEvent: {
       eventTime: new Date(),
       details: [
@@ -53,6 +65,53 @@ export default (state = initialState, action) => {
       ...state,
       items: action.payload,
       isFetched: true
+    }
+  case 'forms/log/new/ADD_DETAIL':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        logEvent: {
+          ...state.newEvents.logEvent,
+          details: [
+            ...state.newEvents.logEvent.details,
+            {...newLogDetail},
+          ]
+        }
+      }
+    }
+  case 'forms/log/new/EDIT_EVENT':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        logEvent: {
+          ...state.newEvents.logEvent,
+          ...action.payload.event,
+          details: state.newEvents.logEvent.details.map((detail, index) => (
+            index === action.payload.index ? { ...detail, ...action.payload.detail } : detail
+          ))
+        }
+      }
+    }
+  case 'forms/log/new/EVENT_CREATE':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        logEvent: {...initialState.newEvents.logEvent},
+      }
+    }
+  case 'forms/log/new/REMOVE_DETAIL':
+    return {
+      ...state,
+      newEvents: {
+        ...state.newEvents,
+        logEvent: {
+          ...state.newEvents.logEvent,
+          details: state.newEvents.logEvent.details.filter((_detail, index) => index !== action.payload),
+        }
+      }
     }
   case 'forms/meal/new/ADD_DETAIL':
     return {
