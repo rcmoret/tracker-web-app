@@ -1,4 +1,3 @@
-import { admin as adminContent } from "./en/admin"
 import { overrides } from "./overrides/copy"
 import { meal as mealContent } from "./en/meal"
 import { medication as medicationContent } from "./en/medication"
@@ -8,9 +7,6 @@ import { snack as snackContent } from "./en/snack"
 import { terms as termsContent } from "./terms"
 import { title as titleContent } from "./en/title"
 
-export const admin = {
-  ...adminContent,
-  ...overrides.admin,
 }
 
 export const meal = {
