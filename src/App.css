@@ -27,6 +27,10 @@ h1 {
   background: #67A482;
 }
 
+.bg-yellow {
+  background: #E1F88C;
+}
+
 .mg-bottom {
   margin-bottom: 10px;
 }
@@ -39,12 +43,27 @@ h1 {
   text-align: right;
 }
 
+.padded-min {
+  padding: 2%;
+}
+
 .padded {
   padding: 4%;
 }
 
 .rounded {
   border-radius: 10px;
+}
+
+.narrow {
+  width: 8%;
+}
+
+.short {
+}
+
+.centered-text {
+  text-align: center;
 }
 
 .event-form {
@@ -127,14 +146,25 @@ a, a:visited {
   color: black;
 }
 
-.left {
-  width: 20%;
-  display: inline-block;
-  vertical-align: top;
+.point8em {
+  font-size: 0.8em;
 }
 
-.right {
-  width: 60%;
-  display: inline-block;
-  vertical-align: top;
+.one-point-2-em {
+  font-size: 1.2em;
+}
+
+/* large screens */
+@media screen and (min-width: 768px) {
+  .left {
+    width: 40%;
+  }
+}
+
+/* small screens */
+@media screen and (max-width: 768px) {
+  .left {
+    width: 90%;
+    margin: 0 auto;
+  }
 }

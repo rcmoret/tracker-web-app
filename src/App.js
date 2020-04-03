@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 import Body from "./components/Body"
 import Forms from './components/Forms/Forms'
+import FormSelect from './components/Forms/FormSelect'
 
 import formsReducer from "./components/Forms/reducer"
 

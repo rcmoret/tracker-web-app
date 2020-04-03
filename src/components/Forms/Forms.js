@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getItems } from './graphQueries'
 import { formItemsFetched } from './actions'
 
+import BackLink from './BackLink'
 import LogEvent from './Log/Event'
 import MealEvent from './Meal/Event'
 import MedicationEvent from './Medication/Event'
@@ -82,6 +83,7 @@ const Body = (props) => {
 
   return (
     <div>
+      <BackLink />
       <div className='left'>
         <div>
           {FormElement}
