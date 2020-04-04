@@ -1,4 +1,9 @@
 export const config = {
+  paths: {
+    eventFormPath: '/forms/:formType',
+    formSelect: '/forms/select',
+    root: '/',
+  },
   quantity: {
     inputSize: 12,
   },

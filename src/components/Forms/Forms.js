@@ -83,7 +83,9 @@ const Body = (props) => {
 
   return (
     <div>
-      <BackLink />
+      <div className='left'>
+        <BackLink />
+      </div>
       <div className='left'>
         <div>
           {FormElement}

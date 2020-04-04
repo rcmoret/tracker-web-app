@@ -9,6 +9,7 @@ import FormSelect from './components/Forms/FormSelect'
 
 import formsReducer from "./components/Forms/reducer"
 
+import { config } from './locales/config'
 import { terms } from "./locales/copy"
 import { titleize } from "./locales/functions"
 import './App.css';
@@ -29,9 +30,9 @@ export default () => {
           <header className="App-header">
             <h1>{titleize(terms.appName)}</h1>
               <Switch>
-                <Route exact path="/" component={Body} />
-                <Route exact path="/forms/select" component={FormSelect} />
-                <Route path="/forms/:formType" component={Forms} />
+                <Route exact path={config.paths.root} component={Body} />
+                <Route exact path={config.paths.formSelect} component={FormSelect} />
+                <Route path={config.paths.eventFormPath} component={Forms} />
               </Switch>
           </header>
         </Router>

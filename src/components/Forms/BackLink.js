@@ -1,15 +1,17 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
+import { links as copy } from '../../locales/copy'
+import { config } from '../../locales/config'
 
 export default () => (
-  <Link to='/forms/select' >
-    <div className='bg-yellow rounded padded-min narrow centered-text mg-bottom'>
+  <Link to={config.paths.formSelect}>
+    <div className='bg-yellow button'>
       <span className='point8em'>
-        <i class='fas fa-arrow-circle-left'></i>
+        <i className='fas fa-arrow-circle-left'></i>
       </span>
       {' '}
-      Back
+      <span className='back-link'>{copy.backLinkTest}</span>
     </div>
   </Link>
 )

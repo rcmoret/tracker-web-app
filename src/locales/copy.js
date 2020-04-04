@@ -1,7 +1,8 @@
 import { overrides } from "./overrides/copy"
-import { log as logContent } from "./en/log"
 import { forms as formsContent } from "./en/forms"
 import { meal as mealContent } from "./en/meal"
+import { links as linksContent } from "./en/links"
+import { log as logContent } from "./en/log"
 import { medication as medicationContent } from "./en/medication"
 import { supplement as supplementContent } from "./en/supplement"
 import { shared as sharedContent } from "./en/shared"
@@ -12,6 +13,11 @@ import { title as titleContent } from "./en/title"
 export const forms = {
   ...formsContent,
   ...overrides.forms,
+}
+
+export const links = {
+  ...linksContent,
+  ...overrides.links,
 }
 
 export const log = {
