@@ -1,8 +1,9 @@
 import { client } from "../../functions/ApolloClient"
 import gql from "graphql-tag"
 
-export const getItems = (onSuccess) => {
+export const getItems = (onSuccess, options = { fetchPolicy: 'no-cache' }) => {
   client.query({
+    ...options,
     query: gql(`
       {
         mealTypes {

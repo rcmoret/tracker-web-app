@@ -8,6 +8,7 @@ import BackLink from './BackLink'
 import LogEvent from './Log/Event'
 import MealEvent from './Meal/Event'
 import MedicationEvent from './Medication/Event'
+import RefreshButton from './RefreshButton'
 import SnackEvent from './Snack/Event'
 import SupplementEvent from './Supplement/Event'
 
@@ -84,7 +85,14 @@ const Body = (props) => {
   return (
     <div>
       <div className='left'>
-        <BackLink />
+        <div className='flex-container flex-space-between'>
+          <div className='button-wrapper'>
+            <BackLink />
+          </div>
+          <div className='button-wrapper'>
+            <RefreshButton dispatch={dispatch}  />
+          </div>
+        </div>
       </div>
       <div className='left'>
         <div>

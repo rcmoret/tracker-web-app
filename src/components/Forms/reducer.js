@@ -66,6 +66,11 @@ export default (state = initialState, action) => {
       items: action.payload,
       isFetched: true
     }
+  case "forms/items/REFRESH":
+    return {
+      ...state,
+      isFetched: false,
+    }
   case 'forms/log/new/ADD_DETAIL':
     return {
       ...state,

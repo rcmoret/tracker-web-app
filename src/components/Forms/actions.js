@@ -2,6 +2,10 @@ export const formItemsFetched = (payload) => (
   { type: "forms/items/FETCHED", payload: payload.data }
 )
 
+export const formItemsRefresh = () => (
+  { type: "forms/items/REFRESH", payload: null }
+)
+
 export const addNewLogEventDetail = () => (
   { type: 'forms/log/new/ADD_DETAIL', payload: null }
 )
