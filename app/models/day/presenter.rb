@@ -17,7 +17,7 @@ module Day
     end
 
     COLLECTABLES = {
-      log_entries: Log::Entries,
+      log_entries: Log::Entry,
       meal_events: Meal::Event,
       medication_events: Medication::Event,
       snack_events: Snack::Event,

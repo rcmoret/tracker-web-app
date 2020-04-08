@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Supplement
+module Victual
   module API
-    class Events < Sinatra::Base
+    class Items < Sinatra::Base
       include APIHelper::Collection
       include APIHelper::NewObject
       include APIHelper::Params

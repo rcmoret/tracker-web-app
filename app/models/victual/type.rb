@@ -7,8 +7,5 @@ module Victual
       BEVERAGE = :beverage,
     ].freeze
     validates :name, inclusion: VALID_TYPES.map(&:to_s), uniqueness: true
-
-    scope :food, -> { where(name: FOOD) }
-    scope :beverage, -> { where(name: BEVERAGE) }
   end
 end
