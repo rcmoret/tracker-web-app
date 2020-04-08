@@ -1,0 +1,34 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/TrailingCommaInArrayLiteral:
+    EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+    EnforcedStyleForMultiline: consistent_comma
+
+Metrics/BlockLength:
+  Max: 10
+  ExcludedMethods:
+    - before
+    - context
+    - create_table
+    - define
+    - describe
+    - factory
+    - group
+    - included
+    - it
+    - let
+    - namespace
+    - shared_context
+    - shared_examples_for
+    - task
